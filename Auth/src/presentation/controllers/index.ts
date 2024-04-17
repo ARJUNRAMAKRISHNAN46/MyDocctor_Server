@@ -1,10 +1,14 @@
 import { IDependencies } from "@/application/interfaces/IDependencies";
-import { patientLoginController } from "./PatientLogin";
-import { doctorLoginController } from "./doctorLogin";
+import { loginController, } from "./login";
+import { signupController } from "./signup";
+import { logoutController } from "./logout";
+import { isExistController } from "./isExist";
 
 export const controllers =(dependencies: IDependencies) => {
     return {
-        patientLogin: patientLoginController(dependencies),
-        doctorLogin: doctorLoginController(dependencies),
+        login: loginController(dependencies),
+        signup: signupController(dependencies),
+        logout: logoutController(dependencies),
+        isExist: isExistController(dependencies)
     }
 }

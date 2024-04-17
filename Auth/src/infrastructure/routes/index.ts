@@ -1,18 +1,19 @@
-import { Router } from 'express';
-import { IDependencies } from '@/application/interfaces/IDependencies';
-import { controllers } from '../../presentation/controllers';
+import { Router } from "express";
+import { IDependencies } from "@/application/interfaces/IDependencies";
+import { controllers } from "../../presentation/controllers";
 
 export const routes = (dependencies: IDependencies) => {
-    const {
-        doctorLogin,
-        patientLogin,
-    } = controllers(dependencies);
+  const { login, signup, logout, isExist } = controllers(dependencies);
 
-    const router = Router();
+  const router = Router();
 
-    router.route('/login').get(patientLogin);
+  router.route("/login").post(login);
 
-    router.route('/doctor/login').get(doctorLogin);
+  router.route("/signup").post(signup);
 
-    return router;
-}
+  router.route('/logout').get(logout);
+
+  router.route('/isExist').get(isExist);
+
+  return router;
+};

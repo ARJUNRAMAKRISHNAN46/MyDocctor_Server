@@ -1,2 +1,1 @@
-export * from './patientEntity';
-export * from './doctorEntity';
+export * from './userEntity';

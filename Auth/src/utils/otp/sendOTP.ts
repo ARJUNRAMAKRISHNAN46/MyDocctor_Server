@@ -17,10 +17,10 @@ export const sendOTP = async (email: string, otp: number | string) => {
     from: "mydocctor@gmail.com",
     to: email,
     subject: "OTP from MyDocctor.online",
-    html: `<p>${message}</p> <p style='color: yellow; font-size: 25px; letter-spacing: 2px'><b>${otp}</b></p>`,
+    html: `<p>${message}</p> <p style='color: red; font-size: 25px; letter-spacing: 2px'><b>${otp}</b></p>`,
   };
 
-  const result = transporter.sendMail(mailData, (error, info) => {
+  transporter.sendMail(mailData, (error, info) => {
     return new Promise((resolve, reject) => {
       if (error) {
         console.log("Error occured while sending the OTP", error);
