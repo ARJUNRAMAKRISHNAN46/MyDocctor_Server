@@ -6,6 +6,7 @@ export const userCreatedProducer = async (
         _id: Schema.Types.ObjectId;
         name?: string;
         email?: string;
+        mobileNumber?: string,
         password?: string;
         role?: string
     }

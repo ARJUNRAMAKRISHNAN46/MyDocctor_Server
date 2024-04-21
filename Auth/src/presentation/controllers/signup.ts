@@ -73,13 +73,16 @@ export const signupController = (dependencies: IDependencies) => {
             // throw new Error("OTP is not verified");
             res.status(406).json({
               success: false,
-              message: 'Please enter a valid otp'
+              message: "Please enter a valid otp",
             });
           } else {
             delete credentials?.otp;
             const { value, error } = signupValidation.validate(req.body);
             if (error) {
-              throw new Error(error?.message);
+              res.status(401).json({
+                success: false,
+                message: error?.message,
+              });
             }
 
             value.password = await hashPassword(value.password);
@@ -87,14 +90,16 @@ export const signupController = (dependencies: IDependencies) => {
             const result = await userSignupUseCase(dependencies).execute(value);
 
             if (!result) {
-              throw new Error("Failed to create user");
+              res.status(401).json({
+                success: false,
+                message: "error occured on signup",
+              });
             } else {
               let payload = {
                 _id: String(result?._id),
                 email: result?.email!,
                 role: result?.role!,
               };
-              console.log('----------------verithe');
 
               const AccessToken = jwt.sign(
                 payload,
@@ -102,8 +107,6 @@ export const signupController = (dependencies: IDependencies) => {
                 { expiresIn: "1h" }
               );
 
-              console.log(AccessToken,'----------------accessToken');
-              
               res.cookie("access_token", AccessToken, {
                 httpOnly: true,
               });
@@ -121,6 +124,7 @@ export const signupController = (dependencies: IDependencies) => {
               const userAdded = {
                 _id: result._id as ObjectId,
                 name: result.name,
+                mobileNumber: result.mobileNumber,
                 email: result.email,
                 password: result.password,
                 role: result.role,
@@ -130,11 +134,17 @@ export const signupController = (dependencies: IDependencies) => {
             }
           }
         } catch (error: any) {
-          throw new Error(error.message);
+          res.status(401).json({
+            success: false,
+            message: error?.message,
+          });
         }
       }
     } catch (error: any) {
-      throw new Error(error?.message);
+      res.status(401).json({
+        success: false,
+        message: error?.message,
+      });
     }
   };
 };

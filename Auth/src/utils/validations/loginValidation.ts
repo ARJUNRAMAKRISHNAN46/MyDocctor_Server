@@ -10,4 +10,5 @@ export const loginValidation = Joi.object({
       )
     )
     .required(),
+    role: Joi.string()
 });

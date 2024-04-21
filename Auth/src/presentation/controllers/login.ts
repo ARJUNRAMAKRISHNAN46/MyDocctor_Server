@@ -13,7 +13,10 @@ export const loginController = (dependencies: IDependencies) => {
       const { value, error } = await loginValidation.validate(req.body);
 
       if (error) {
-        throw new Error(error?.message);
+        res.status(401).json({
+          success: false,
+          message: error?.message,
+        });
       }
 
       const result = await loginUserUseCase(dependencies).execute(
@@ -41,7 +44,10 @@ export const loginController = (dependencies: IDependencies) => {
         message: "Patient Logged",
       });
     } catch (error: any) {
-      throw new Error(error?.message);
+      res.status(401).json({
+        success: false,
+        message: error?.message,
+      });
     }
   };
 };
