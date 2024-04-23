@@ -9,7 +9,7 @@ export const updatePassword = (dependencies: IDependencies) => {
 
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const { email, password } = req.body;
+      let { email, password } = req.body;
 
       if (!email || !password) {
         return res.status(400).json({
@@ -23,15 +23,20 @@ export const updatePassword = (dependencies: IDependencies) => {
       );
 
       if (!existUser) {
-        return res.status(404).json({ success: false, message: "User not found" });
+        return res
+          .status(404)
+          .json({ success: false, message: "User not found" });
       }
 
-      const hashedPassword = await hashPassword(password);
-      const updateSuccess = await updateUserPasswordUseCase(dependencies).execute({ email, password: hashedPassword });
+      password = await hashPassword(password);
+      const updateSuccess = await updateUserPasswordUseCase(
+        dependencies
+      ).execute({ email, password });
 
       if (updateSuccess) {
         return res.status(200).json({
           success: true,
+          data: existUser, 
           message: "Password updated successfully",
         });
       } else {
