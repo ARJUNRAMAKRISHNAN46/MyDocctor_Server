@@ -4,11 +4,11 @@ import { signupValidation } from "../../utils/validations/signupValidation";
 import { generateOTP } from "../../utils/otp/generateOTP";
 import { sendOTP } from "../../utils/otp/sendOTP";
 import { hashPassword } from "../../utils/bcrypt/hashPassword";
-import jwt from "jsonwebtoken";
 import { Otp } from "../../infrastructure/database/mongoDB/models/otp";
 import { userCreatedProducer } from "../../infrastructure/kafka/producers/userCreatedProducer";
 import { generatePassword } from "../../utils/password/generatePassword";
 import { ObjectId } from "mongoose";
+import jwt from "jsonwebtoken";
 
 export const signupController = (dependencies: IDependencies) => {
   const {
@@ -78,6 +78,7 @@ export const signupController = (dependencies: IDependencies) => {
           } else {
             delete credentials?.otp;
             const { value, error } = signupValidation.validate(req.body);
+            console.log("🚀 ~ return ~ value:", value)
             if (error) {
               res.status(401).json({
                 success: false,

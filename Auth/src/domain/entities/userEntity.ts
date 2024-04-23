@@ -1,11 +1,5 @@
 import { ObjectId } from 'mongoose';
 
-enum Role {
-    patient = 'user',
-    doctor = 'doctor',
-    admin = 'admin'
-}
-
 enum Gender {
     male = 'male',
     female = 'female',
@@ -15,16 +9,28 @@ enum Gender {
 export interface UserEntity {
     _id: ObjectId,
     name: string,
-    mobileNumber?: string,
     email: string,
     password?: string,
-    dob?: string,
-    role?: Role,
-    avatar?: string,
-    gender?: Gender,
+    mobileNumber?: string,
+    role?: string,
     isBlocked?: boolean,
+    otp: string;
+    dob?: string,
+    favouriteDoctor: object[],
+    address:object[],
+    appointments: object[],
+    expertise?: string;
+    education?: string;
+    dateOfBirth?: string;
+    languagesKnown?: string[];
+    currentWorkingHospital?: string;
+    gender?: Gender,
+    yearsOfExperience?: number;
+    workingDays?: string[];
+    medicalLisenceNumber?: string;
+    avatar?: string,
     isVerified?: boolean,
-    createdAt?: Date,
-    updatedAt?: Date,
-    otp?: string,
+    createdAt?: Date;
+    updatedAt?: Date;
+    isActive?: boolean,
 }
