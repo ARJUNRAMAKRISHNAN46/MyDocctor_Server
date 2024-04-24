@@ -6,6 +6,7 @@ import { isExistController } from "./isExist";
 import { signupWithGoogle } from "./signupWithGoogle";
 import { loginWithGoogle } from "./loginWithGoogle";
 import { updatePassword } from "./updatePassword";
+import { forgotPassword } from "./forgotPassword";
 
 export const controllers = (dependencies: IDependencies) => {
   return {
@@ -16,5 +17,6 @@ export const controllers = (dependencies: IDependencies) => {
     signupGoogle: signupWithGoogle(dependencies),
     loginGoogle: loginWithGoogle(dependencies),
     updatePassword: updatePassword(dependencies),
+    forgotPassword: forgotPassword(dependencies),
   };
 };

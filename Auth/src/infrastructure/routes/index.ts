@@ -3,8 +3,16 @@ import { IDependencies } from "@/application/interfaces/IDependencies";
 import { controllers } from "../../presentation/controllers";
 
 export const routes = (dependencies: IDependencies) => {
-  const { login, signup, logout, isExist, signupGoogle, loginGoogle, updatePassword } =
-    controllers(dependencies);
+  const {
+    login,
+    signup,
+    logout,
+    isExist,
+    signupGoogle,
+    loginGoogle,
+    updatePassword,
+    forgotPassword,
+  } = controllers(dependencies);
 
   const router = Router();
 
@@ -20,7 +28,9 @@ export const routes = (dependencies: IDependencies) => {
 
   router.route("/googleLogin").post(loginGoogle);
 
-  router.route('/updatePassword').post(updatePassword)
+  router.route("/updatePassword").post(updatePassword);
+
+  router.route("/forgotPassword").post(forgotPassword);
 
   return router;
 };
