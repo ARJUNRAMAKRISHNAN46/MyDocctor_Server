@@ -1,4 +1,4 @@
-import { IDependencies } from "@/application/interfaces/IDependencies";
+import { IDependencies } from "../../application/interfaces/IDependencies";
 import { Request, Response, NextFunction } from "express";
 import { generateAccessToken, generateRefreshToken } from "../../utils/jwt";
 import { loginValidation } from "../../utils/validations/loginValidation";
@@ -13,7 +13,7 @@ export const loginController = (dependencies: IDependencies) => {
       const { value, error } = await loginValidation.validate(req.body);
 
       if (error) {
-        res.status(401).json({
+        return res.status(401).json({
           success: false,
           message: error?.message,
         });
@@ -35,16 +35,15 @@ export const loginController = (dependencies: IDependencies) => {
       });
 
       res.cookie("access_token", accessToken, { httpOnly: true });
-
       res.cookie("refresh_token", refreshToken, { httpOnly: true });
 
-      res.status(200).json({
+      return res.status(200).json({
         success: true,
         data: result,
-        message: "Patient Logged",
+        message: "User Logged",
       });
     } catch (error: any) {
-      res.status(401).json({
+      return res.status(401).json({
         success: false,
         message: error?.message,
       });

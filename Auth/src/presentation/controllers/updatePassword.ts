@@ -1,17 +1,21 @@
 import { Request, Response, NextFunction } from "express";
 import { IDependencies } from "../../application/interfaces/IDependencies";
 import { hashPassword } from "../../utils/bcrypt/hashPassword";
+import { verifyToken } from "../../utils/jwt";
 
 export const updatePassword = (dependencies: IDependencies) => {
   const {
-    useCases: { updateUserPasswordUseCase, findUserByEmailUseCase },
+    useCases: { findUserByEmailUseCase, updateUserPasswordUseCase },
   } = dependencies;
 
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
-      let { email, password } = req.body;
+      console.log("🚀 ~ return ~ body:", req.body);
 
-      if (!email || !password) {
+      const email = await String(verifyToken(req.body.email));
+      console.log("🚀 ~ return ~ data:", email);
+
+      if (!req.body.email || !req.body.password) {
         return res.status(400).json({
           success: false,
           message: "Email and password are required fields",
@@ -21,6 +25,7 @@ export const updatePassword = (dependencies: IDependencies) => {
       const existUser = await findUserByEmailUseCase(dependencies).execute(
         email
       );
+      console.log("🚀 ~ return ~ existUser:", existUser);
 
       if (!existUser) {
         return res
@@ -28,15 +33,19 @@ export const updatePassword = (dependencies: IDependencies) => {
           .json({ success: false, message: "User not found" });
       }
 
-      password = await hashPassword(password);
+      let password = await hashPassword(req.body.password);
+      password = String(password);
+      console.log("🚀 ~ return ~ password:", password);
+
       const updateSuccess = await updateUserPasswordUseCase(
         dependencies
       ).execute({ email, password });
+      console.log("🚀 ~ return ~ updateSuccess:", updateSuccess);
 
       if (updateSuccess) {
         return res.status(200).json({
           success: true,
-          data: existUser, 
+          data: existUser,
           message: "Password updated successfully",
         });
       } else {
