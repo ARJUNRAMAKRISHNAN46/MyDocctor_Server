@@ -1,6 +1,6 @@
 import { IDependencies } from "../interfaces/IDependencies";
 
-export const verifyDoctor = (dependencies: IDependencies) => {
+export const verifyDoctorUseCase = (dependencies: IDependencies) => {
   const {
     repositories: { verifyDoctor },
   } = dependencies;
@@ -8,11 +8,13 @@ export const verifyDoctor = (dependencies: IDependencies) => {
   return {
     execute: async (id: string) => {
       try {
-        return await verifyDoctor(id);
+        const doctor = await verifyDoctor(id);
+        return doctor;
       } catch (error: any) {
         console.log(error?.message);
-        console.log('Doctor creation failed!!!');
+        console.log("Doctor creation failed!!!");
       }
+      return null;
     },
   };
 };

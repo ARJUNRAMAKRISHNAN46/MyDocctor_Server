@@ -1,7 +1,7 @@
 import express, { Request, Response, NextFunction, Application } from 'express';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
-import { dependencies } from '@/config/dependecies';
+import { dependencies } from '../config/dependecies';
 import { routes } from '../infrastructure/routes';
 
 dotenv.config();

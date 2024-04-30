@@ -5,7 +5,7 @@ export default async () => {
   console.log(process.env.MONGO_URL);
   try {
     await mongoose.connect(String(process.env.MONGO_URL).trim());
-    console.log("🍃🍃🍃🍃🍃🍃 Database connected with MongoDB 🍃🍃🍃🍃🍃🍃");
+    console.log("🍃🍃🍃🍃🍃🍃 User Database connected with MongoDB 🍃🍃🍃🍃🍃🍃");
   } catch (error: any) {
     console.error(`🍁🍁🍁🍁🍁 Database Connection failed 🍁🍁🍁🍁🍁`);
     console.log(error?.message);

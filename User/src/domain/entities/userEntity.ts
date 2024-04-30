@@ -7,7 +7,7 @@ enum Gender {
 }
 
 export interface UserEntity {
-    _id: ObjectId,
+    _id?: ObjectId,
     name: string,
     email: string,
     password?: string,
