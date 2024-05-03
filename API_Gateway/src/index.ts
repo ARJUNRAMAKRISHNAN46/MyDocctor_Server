@@ -16,8 +16,9 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use("/auth", proxy("http://localhost:4001"));
-app.use("/doctor", proxy("http://localhost:4002"));
-app.use("/admin", proxy("http://localhost:4003"));
+app.use("/user", proxy("http://localhost:4002"));
+app.use("/doctor", proxy("http://localhost:4003"));
 app.use("/appointment", proxy("http://localhost:4004"));
+app.use("/payments", proxy("http://localhost:4005"));
 
 app.listen(PORT, () => console.log(`Gateway running at ${PORT}`));

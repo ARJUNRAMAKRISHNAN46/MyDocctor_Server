@@ -30,7 +30,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Connected to admin service at ${PORT}`); 
+    console.log(`Connected to user service at ${PORT}`); 
 });
 
 export default app;
