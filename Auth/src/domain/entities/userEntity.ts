@@ -6,6 +6,13 @@ enum Gender {
     other = 'other'
 }
 
+export interface AvailableShift {
+    date: string;
+    methods: { method: string; status: boolean }[];
+    shifts: { shift: string; slots: { time: string; status: string }[] }[];
+  }
+  
+
 export interface UserEntity {
     _id: ObjectId,
     name: string,
@@ -33,4 +40,5 @@ export interface UserEntity {
     createdAt?: Date;
     updatedAt?: Date;
     isActive?: boolean,
+    availableShifts: AvailableShift[];
 }

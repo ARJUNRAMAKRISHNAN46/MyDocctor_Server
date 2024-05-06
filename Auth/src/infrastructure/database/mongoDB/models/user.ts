@@ -84,6 +84,7 @@ const userSchema = new Schema({
   },
   isVerified: {
     type: Boolean,
+    default: false,
   },
   createdAt: {
     type: Date,
@@ -95,6 +96,7 @@ const userSchema = new Schema({
   },
   isActive: {
     type: Boolean,
+    default: true,
   }
 });
 

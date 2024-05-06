@@ -18,6 +18,7 @@ export interface Doctor {
   pincode: string;
   expertise: string[];
   yearsOfExp: number;
+  isVerified: boolean;
   medicalLicenseNumber: string;
   nameOfCollege: string;
   currentWorkingHospital: string;

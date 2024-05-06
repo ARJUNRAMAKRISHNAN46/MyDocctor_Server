@@ -20,7 +20,7 @@ export class Doctor {
     languagesKnown: string[];
     currentWorkingHospital: string;
     gender: 'male' | 'female' | 'other';
-    yearsOfExperience: number;
+    yearsOfExperience: string;
     workingDays: string[];
     medicalLicenseNumber: string;
     avatar: string;
@@ -51,7 +51,7 @@ export class Doctor {
       languagesKnown: string[],
       currentWorkingHospital: string,
       gender: 'male' | 'female' | 'other',
-      yearsOfExperience: number,
+      yearsOfExperience: string,
       workingDays: string[],
       medicalLicenseNumber: string,
       avatar: string,
