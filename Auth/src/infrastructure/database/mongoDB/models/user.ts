@@ -97,6 +97,10 @@ const userSchema = new Schema({
   isActive: {
     type: Boolean,
     default: true,
+  },
+  isProfile: {
+    type: Boolean,
+    default: false,
   }
 });
 

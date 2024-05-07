@@ -18,22 +18,22 @@ export const signupController = (dependencies: IDependencies) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
       const credentials = req.body;
-      console.log("🚀 ~ return ~ credentials:", credentials);
 
       const existUser = await findUserByEmailUseCase(dependencies).execute(
         req.body.email
       );
 
       if (existUser) {
-        return res.status(409).send({ error: "Email already registered" });
+        return res
+          .status(400)
+          .json({ success: false, message: "Email already registered" });
       }
 
       if (!credentials.otp && credentials.password) {
         const otp = await generateOTP();
-        console.log("🚀 ~ return ~ otp:", otp);
+        console.log("🚀 ~ return ~ otp:", otp)
 
         let emailExist = await Otp.findOne({ email: credentials.email });
-        console.log("🚀 ~ return ~ emailExist:", emailExist);
         let dbOtp;
 
         if (emailExist) {
@@ -47,7 +47,6 @@ export const signupController = (dependencies: IDependencies) => {
 
         if (dbOtp) {
           sendOTP(credentials.email, otp).then((response) => {
-            console.log("🚀 ~ sendOTP ~ response:", response);
             return res
               .status(200)
               .send({ message: `An OTP has been send to your email` });
@@ -78,7 +77,7 @@ export const signupController = (dependencies: IDependencies) => {
           } else {
             delete credentials?.otp;
             const { value, error } = signupValidation.validate(req.body);
-            console.log("🚀 ~ return ~ value:", value)
+            console.log("🚀 ~ return ~ value:", value);
             if (error) {
               res.status(401).json({
                 success: false,

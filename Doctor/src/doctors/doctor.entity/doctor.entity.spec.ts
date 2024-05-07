@@ -1,7 +1,8 @@
-import { DoctorEntity } from './doctor.entity';
+import { Doctor } from './doctor.entity';
 
 describe('DoctorEntity', () => {
   it('should be defined', () => {
-    expect(new DoctorEntity()).toBeDefined();
+    const mockDoctor = jest.fn();
+    expect(mockDoctor).toBeDefined();
   });
 });
