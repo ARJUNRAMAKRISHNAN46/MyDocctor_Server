@@ -10,20 +10,24 @@ export class TestConsumer implements OnModuleInit {
   ) {}
 
   async onModuleInit() {
-    await this.consumerService.consume(
-      { topics: ['to-doctor'] },
-      {
-        eachMessage: async ({ topic, partition, message }) => {
-          const doctorData = JSON.parse(message.value.toString());
+    const topicsToConsume = ['to-doctor', 'to-user', 'to-auth'];
 
-          try {
-            await this.doctorCreateProfileService.createProfile(doctorData);
-            console.log('Data saved:', doctorData);
-          } catch (error) {
-            console.error('Error saving data:', error.message);
-          }
+    for (const topic of topicsToConsume) {
+      await this.consumerService.consume(
+        { topics: [topic] },
+        {
+          eachMessage: async ({ topic, partition, message }) => {
+            const doctorData = JSON.parse(message.value.toString());
+
+            try {
+              await this.doctorCreateProfileService.createProfile(doctorData);
+              console.log('Data saved:', doctorData);
+            } catch (error) {
+              console.error('Error saving data:', error.message);
+            }
+          },
         },
-      },
-    );
+      );
+    }
   }
 }

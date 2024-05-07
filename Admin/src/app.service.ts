@@ -4,7 +4,7 @@ import { MongoClient } from 'mongodb';
 import { ObjectId } from 'mongodb';
 
 @Injectable()
-export class DoctorProfileVerificaionService {
+export class DoctorService {
   async verifyProfile(doctorData: Doctor): Promise<void> {
     const URL = process.env.MONGO_URL;
 
@@ -31,7 +31,29 @@ export class DoctorProfileVerificaionService {
       await client.close();
     }
   }
- async getHello() {
-  return 'hello world'
- }
+  async createProfile(doctorData: Doctor): Promise<void> {
+    const URL = process.env.MONGO_URL;
+
+    if (!URL) {
+      throw new Error('MongoDB URL is not provided.');
+    }
+    const client = new MongoClient(URL);
+    try {
+      await client.connect();
+
+      const database = client.db('MyDocctor-Docctor');
+      const collection = database.collection('doctors');
+      
+      const createdData = await collection.insertOne(doctorData);
+      console.log(
+        '🚀 ~ DoctorCreateProfileService ~ createProfile ~ createdData:',
+        createdData,
+      );
+    } finally {
+      await client.close();
+    }
+  }
+  async getHello() {
+    return 'hello world';
+  }
 }

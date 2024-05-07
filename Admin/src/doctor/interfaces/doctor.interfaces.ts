@@ -1,3 +1,6 @@
+import { ObjectId } from 'mongodb';
+import mongoose from 'mongoose';
+
 export interface AvailableShift {
   date: string;
   methods: { method: string; status: boolean }[];
@@ -5,7 +8,7 @@ export interface AvailableShift {
 }
 
 export interface Doctor {
-  _id: string;
+  _id: mongoose.Types.ObjectId;
   name: string;
   gender: string;
   email: string;
