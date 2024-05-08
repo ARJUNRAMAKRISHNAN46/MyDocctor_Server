@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Doctor } from './doctor/interfaces/doctor.interfaces';
+import { Doctor } from './interfaces/doctor.interfaces';
 import { MongoClient } from 'mongodb';
 import { ObjectId } from 'mongodb';
 

@@ -15,7 +15,7 @@ export const userCreatedProducer = async (
         await producer.connect()
         if(data.role === 'user' || data.role === 'admin'){
             const message = {
-                topic: 'to-user',
+                topic: 'from-auth',
                 messages: [{
                     key: 'userCreated',
                     value: JSON.stringify(data)
@@ -24,7 +24,7 @@ export const userCreatedProducer = async (
             await  producer.send(message);
         } else if ( data.role === 'doctor') {
             const message = {
-                topic: 'to-doctor',
+                topic: 'from-auth',
                 messages: [{
                     key: 'doctorCreated',
                     value: JSON.stringify(data)

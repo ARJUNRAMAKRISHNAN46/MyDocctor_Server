@@ -2,7 +2,7 @@ import { Injectable, OnModuleInit } from "@nestjs/common";
 import { Kafka, Producer, ProducerRecord } from "kafkajs";
 
 @Injectable()
-export class ProducerService {
+export class ProduceService {
     private readonly kafka = new Kafka({
         brokers: ['localhost:29092'],
     });
