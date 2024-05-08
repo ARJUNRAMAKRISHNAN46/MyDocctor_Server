@@ -5,7 +5,7 @@ import { generateOTP } from "../../utils/otp/generateOTP";
 import { sendOTP } from "../../utils/otp/sendOTP";
 import { hashPassword } from "../../utils/bcrypt/hashPassword";
 import { Otp } from "../../infrastructure/database/mongoDB/models/otp";
-import { userCreatedProducer } from "../../infrastructure/kafka/producers/userCreatedProducer";
+import { userCreatedProducer } from "../../infrastructure/kafka/producers/producers";
 import { generatePassword } from "../../utils/password/generatePassword";
 import { ObjectId } from "mongoose";
 import jwt from "jsonwebtoken";

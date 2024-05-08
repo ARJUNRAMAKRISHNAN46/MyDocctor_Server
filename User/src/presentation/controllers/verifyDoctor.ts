@@ -11,7 +11,7 @@ export const verifyDoctorController = (dependencies: IDependencies) => {
       const credentials = req.body;
       console.log("🚀 ~ return ~ credentials:", credentials);
 
-      const existUser = 0;
+      const existUser = verifyDoctorUseCase(credentials);
       console.log("🚀 ~ return ~ existUser:", existUser);
     } catch (error: any) {
       console.log(error?.message);

@@ -1,1 +1,2 @@
-export * from './verifyDoctorUseCase'
+export * from "./verifyDoctorUseCase";
+export * from "./addSpecialityUseCase";

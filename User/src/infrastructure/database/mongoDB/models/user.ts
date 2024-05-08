@@ -97,7 +97,7 @@ const userSchema = new Schema({
   isActive: {
     type: Boolean,
     default: true,
-  }
+  },
 });
 
 export const User = model<UserEntity>("users", userSchema);

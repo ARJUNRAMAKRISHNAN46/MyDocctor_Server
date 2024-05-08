@@ -3,9 +3,14 @@ import { UserEntity } from "@/domain/entities";
 
 export const findDoctorByEmail = async (email: string): Promise<UserEntity | null> => {
     try {
-        const existDoctor = await  
+        const existDoctor = await User.findOne({email});
+        if(!existDoctor) {
+            console.log
+            return null;
+        }
         return existDoctor as UserEntity
     } catch (error: any) {
         console.log("🚀 ~ findDoctorByEmail ~ error:", error?.message);
+        return null;
     }
 }
