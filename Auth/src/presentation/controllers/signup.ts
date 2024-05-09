@@ -7,8 +7,8 @@ import { hashPassword } from "../../utils/bcrypt/hashPassword";
 import { Otp } from "../../infrastructure/database/mongoDB/models/otp";
 import { userCreatedProducer } from "../../infrastructure/kafka/producers/producers";
 import { generatePassword } from "../../utils/password/generatePassword";
-import { ObjectId } from "mongoose";
 import jwt from "jsonwebtoken";
+import { ObjectId } from "mongoose";
 
 export const signupController = (dependencies: IDependencies) => {
   const {
@@ -31,7 +31,7 @@ export const signupController = (dependencies: IDependencies) => {
 
       if (!credentials.otp && credentials.password) {
         const otp = await generateOTP();
-        console.log("🚀 ~ return ~ otp:", otp)
+        console.log("🚀 ~ return ~ otp:", otp);
 
         let emailExist = await Otp.findOne({ email: credentials.email });
         let dbOtp;
@@ -124,10 +124,32 @@ export const signupController = (dependencies: IDependencies) => {
               const userAdded = {
                 _id: result._id as ObjectId,
                 name: result.name,
-                mobileNumber: result.mobileNumber,
                 email: result.email,
                 password: result.password,
+                mobileNumber: result.mobileNumber,
                 role: result.role,
+                isBlocked: result.isBlocked,
+                otp: result.otp,
+                dob: result.dob,
+                favouriteDoctor: result.favouriteDoctor,
+                address: result.address,
+                appointments: result.appointments,
+                expertise: result.expertise,
+                education: result.education,
+                dateOfBirth: result.dateOfBirth,
+                languagesKnown: result.languagesKnown,
+                currentWorkingHospital: result.currentWorkingHospital,
+                gender: result.gender,
+                yearsOfExperience: result.yearsOfExperience,
+                workingDays: result.workingDays,
+                medicalLisenceNumber: result.medicalLisenceNumber,
+                avatar: result.avatar,
+                isVerified: result.isVerified,
+                createdAt: result.createdAt,
+                updatedAt: result.updatedAt,
+                isActive: result.isActive,
+                isProfile: result.isProfile,
+                availableShifts: result.availableShifts,
               };
 
               userCreatedProducer(userAdded);

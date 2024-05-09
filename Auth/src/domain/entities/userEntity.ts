@@ -39,6 +39,7 @@ export interface UserEntity {
     isVerified?: boolean,
     createdAt?: Date;
     updatedAt?: Date;
-    isActive?: boolean,
+    isActive?: boolean;
+    isProfile?: boolean;
     availableShifts: AvailableShift[];
 }
