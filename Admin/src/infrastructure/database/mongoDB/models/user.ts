@@ -98,6 +98,10 @@ const userSchema = new Schema({
     type: Boolean,
     default: true,
   },
+  isProfile: {
+    type: Boolean,
+    default: false,
+  }
 });
 
 export const User = model<UserEntity>("users", userSchema);
