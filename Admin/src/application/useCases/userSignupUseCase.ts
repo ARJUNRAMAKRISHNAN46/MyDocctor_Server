@@ -1,4 +1,4 @@
-import { UserEntity } from "@/domain/entities";
+import { UserEntity } from "../../domain/entities";
 import { IDependencies } from "../interfaces/IDependencies";
 
 export const userSignupUseCase = (dependencies: IDependencies) => {

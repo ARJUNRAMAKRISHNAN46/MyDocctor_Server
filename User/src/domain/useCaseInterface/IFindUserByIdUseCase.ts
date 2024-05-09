@@ -1,5 +1,5 @@
 import { UserEntity } from "../entities";
 
-export interface IVerifyDoctorUseCase {
+export interface IFindUserByIdUseCase {
   execute(id: string): Promise<UserEntity | null>;
 }

@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { IDependencies } from "@/application/interfaces/IDependencies";
+import { IDependencies } from "../../application/interfaces/IDependencies";
 import { signupValidation } from "../../utils/validations/signupValidation";
 import { generateOTP } from "../../utils/otp/generateOTP";
 import { sendOTP } from "../../utils/otp/sendOTP";

@@ -2,7 +2,7 @@ import { User } from "../../../infrastructure/database/mongoDB/models";
 import { Kafka } from "kafkajs";
 
 const kafka = new Kafka({
-  clientId: "user-client",
+  clientId: "auth-client",
   brokers: ["localhost:29092"],
 });
 
@@ -14,19 +14,21 @@ export const runConsumer = async () => {
 
   await consumer.run({
     eachMessage: async ({ topic, partition, message }) => {
-      if (!message.value) {
-        console.warn("Received a message with null value.");
-        return;
-      }
-
       console.log({
         value: message.value?.toString(),
       });
-
       try {
-        const userData = JSON.parse(message.value.toString());
-        const result = await User.create(userData);
-        console.log("🚀 User created:", result);
+        if (message.value) {
+          const userData = JSON.parse(message.value.toString());
+          const existUser = await User.findOne({ email: userData?.email });
+          console.log("🚀 ~ eachMessage: ~ existUser:", existUser);
+          if (!existUser) {
+            const result = await User.create(userData);
+            console.log("🚀 User created:", result);
+          } else {
+            console.log("Email already exists!!");
+          }
+        }
       } catch (error) {
         console.error("Error creating user:", error);
       }

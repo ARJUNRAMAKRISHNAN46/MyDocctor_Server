@@ -17,7 +17,16 @@ const runConsumer = async () => {
       console.log({
         value: message.value?.toString(),
       });
-      await User.create(message?.value?.toString());
+      try {
+        if (message.value) {
+          const userData = JSON.parse(message?.value?.toString());
+          const result = await User.create(userData);
+          console.log("🚀 User created:", result);
+        }
+      } catch (error) {
+        console.error("Error creating user:", error);
+      }
+
       await consumer.commitOffsets([
         { topic, partition, offset: message.offset },
       ]);

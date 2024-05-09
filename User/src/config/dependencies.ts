@@ -4,5 +4,5 @@ import { IDependencies } from '../application/interfaces/IDependencies';
 
 export const dependencies: IDependencies = {
     useCases,
-    repositories,
-}
+    repositories
+};

@@ -1,4 +1,4 @@
-import { User } from "@/infrastructure/database/mongoDB/models";
+import { User } from "../../../infrastructure/database/mongoDB/models";
 import { Kafka } from "kafkajs";
 
 const kafka = new Kafka({

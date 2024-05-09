@@ -1,5 +1,5 @@
-import { IDependencies } from "@/application/interfaces/IDependencies";
-import { UserEntity } from "@/domain/entities";
+import { IDependencies } from "../../application/interfaces/IDependencies";
+import { UserEntity } from "../../domain/entities";
 import { Request, Response, NextFunction } from "express";
 
 export const isExistController = (dependencies: IDependencies) => {

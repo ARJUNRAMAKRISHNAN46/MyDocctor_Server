@@ -1,4 +1,4 @@
-import { AvailableShift } from "@/domain/entities";
+import { AvailableShift } from "../../../domain/entities";
 import { producer } from "..";
 import { Schema } from "mongoose";
 
@@ -50,18 +50,6 @@ export const userCreatedProducer = async (data: {
       };
       await producer.send(message);
     }
-    // else if (data.role === "doctor") {
-    //   const message = {
-    //     topic: "from-auth",
-    //     messages: [
-    //       {
-    //         key: "doctorCreated",
-    //         value: JSON.stringify(data),
-    //       },
-    //     ],
-    //   };
-    //   await producer.send(message);
-    // }
   } catch (error: any) {
     console.error("kafka produce error", error?.message);
   } finally {
