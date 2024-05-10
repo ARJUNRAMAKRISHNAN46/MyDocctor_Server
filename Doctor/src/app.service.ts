@@ -68,9 +68,14 @@ export class AppService {
       const collection = database.collection('doctors');
       // const objectId = new ObjectId(doctorId);
       // console.log("🚀 ~ AppService ~ findDoctorById ~ objectId:", objectId)
-      const doctorDocument = await collection.findOne({ _id: new ObjectId(doctorId) });
-      console.log("🚀 ~ AppService ~ findDoctorById ~ doctorDocument:", doctorDocument)
-      if(!doctorDocument) {
+      const doctorDocument = await collection.findOne({
+        _id: new ObjectId(doctorId),
+      });
+      console.log(
+        '🚀 ~ AppService ~ findDoctorById ~ doctorDocument:',
+        doctorDocument,
+      );
+      if (!doctorDocument) {
         return null;
       }
       const doctor: Doctor = {

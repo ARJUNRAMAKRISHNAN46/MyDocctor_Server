@@ -2,9 +2,8 @@ import { Request, Response, NextFunction } from "express";
 import { IDependencies } from "../../application/interfaces/IDependencies";
 import { signupValidation } from "../../utils/validations/signupValidation";
 import { hashPassword } from "../../utils/bcrypt/hashPassword";
-import { userCreatedProducer } from "../../infrastructure/kafka/producers/producers";
+import { userCreatedProducer } from "../../infrastructure/kafka/producers/userCreatedProducer";
 import jwt from "jsonwebtoken";
-import { ObjectId } from "mongoose";
 
 export const signupWithGoogle = (dependencies: IDependencies) => {
   const {
@@ -64,38 +63,8 @@ export const signupWithGoogle = (dependencies: IDependencies) => {
           user: result,
           message: "User Created!",
         });
-        const userAdded = {
-          _id: result._id as ObjectId,
-          name: result.name,
-          email: result.email,
-          password: result.password,
-          mobileNumber: result.mobileNumber,
-          role: result.role,
-          isBlocked: result.isBlocked,
-          otp: result.otp,
-          dob: result.dob,
-          favouriteDoctor: result.favouriteDoctor,
-          address: result.address,
-          appointments: result.appointments,
-          expertise: result.expertise,
-          education: result.education,
-          dateOfBirth: result.dateOfBirth,
-          languagesKnown: result.languagesKnown,
-          currentWorkingHospital: result.currentWorkingHospital,
-          gender: result.gender,
-          yearsOfExperience: result.yearsOfExperience,
-          workingDays: result.workingDays,
-          medicalLisenceNumber: result.medicalLisenceNumber,
-          avatar: result.avatar,
-          isVerified: result.isVerified,
-          createdAt: result.createdAt,
-          updatedAt: result.updatedAt,
-          isActive: result.isActive,
-          isProfile: result.isProfile,
-          availableShifts: result.availableShifts,
-        };
 
-        userCreatedProducer(userAdded);
+        userCreatedProducer(result);
       }
     } catch (error: any) {
       res.status(401).json({

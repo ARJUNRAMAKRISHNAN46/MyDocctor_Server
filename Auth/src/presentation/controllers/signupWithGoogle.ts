@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { IDependencies } from "../../application/interfaces/IDependencies";
 import { signupValidation } from "../../utils/validations/signupValidation";
 import { hashPassword } from "../../utils/bcrypt/hashPassword";
-import { userCreatedProducer } from "../../infrastructure/kafka/producers/producers";
+import { userCreatedProducer } from "../../infrastructure/kafka/producers/userCreatedProducer";
 import jwt from "jsonwebtoken";
 import { ObjectId } from "mongoose";
 

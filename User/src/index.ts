@@ -1,6 +1,6 @@
 import server from './presentation/server';
 import dbConnection from './infrastructure/database/dbConnection';
-import { runConsumer } from './infrastructure/kafka/consumers/consumer';
+import { runConsumer } from './infrastructure/kafka/consumer';
 
 (async() => {
     try {
