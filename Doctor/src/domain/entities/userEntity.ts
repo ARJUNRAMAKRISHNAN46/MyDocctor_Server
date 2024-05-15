@@ -1,10 +1,7 @@
-import { ObjectId } from 'mongodb';
-import { Document } from 'mongoose';
-
 enum Gender {
-  Male = 'male',
-  Female = 'female',
-  Other = 'other',
+  Male = "male",
+  Female = "female",
+  Other = "other",
 }
 
 interface ShiftSlot {
@@ -61,4 +58,3 @@ export interface UserEntity {
   qualification?: string;
   availableShift?: AvailableShift[];
 }
-

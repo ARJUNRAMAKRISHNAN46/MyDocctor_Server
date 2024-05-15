@@ -5,3 +5,4 @@ export * from './verifyUserUseCase';
 export * from './updateProfileUseCase';
 export * from './listDoctorUseCase';
 export * from './blockUserUseCase';
+export * from './updateBookingUseCase';

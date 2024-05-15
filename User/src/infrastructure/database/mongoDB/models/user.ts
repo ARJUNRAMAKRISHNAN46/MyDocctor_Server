@@ -57,7 +57,7 @@ const userSchema = new Schema({
   education: {
     type: String,
   },
-  dateOfBirth: {
+  dob: {
     type: String,
   },
   languagesKnown: {

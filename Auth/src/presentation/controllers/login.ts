@@ -23,6 +23,13 @@ export const loginController = (dependencies: IDependencies) => {
         value.email,
         value.password
       );
+      if(result?.isActive === false) {
+        res.status(400).json({
+          success: false,
+          message: "You are blocked by admin!!!"
+        })
+        return;
+      }
 
       const accessToken = generateAccessToken({
         _id: String(result?._id),

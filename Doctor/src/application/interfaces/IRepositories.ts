@@ -1,4 +1,4 @@
-import { UserEntity } from "../../domain/entities";
+import { UserEntity, bookingEntity } from "../../domain/entities";
 
 export interface IRepositories {
     createUser: (data: UserEntity) => Promise<UserEntity | null>;
@@ -8,4 +8,5 @@ export interface IRepositories {
     updateProfile: (data: UserEntity) => Promise<UserEntity | null>;
     listDoctor: () => Promise<UserEntity[] | null>;
     blockUser: (id: string) => Promise<UserEntity | null>;
+    updateBooking: (data: bookingEntity, id: string) => Promise<UserEntity | null>;
 }

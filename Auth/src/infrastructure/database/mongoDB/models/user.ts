@@ -53,7 +53,7 @@ const userSchema = new mongoose.Schema({
   education: {
     type: String,
   },
-  dateOfBirth: {
+  dob: {
     type: String,
   },
   languagesKnown: {

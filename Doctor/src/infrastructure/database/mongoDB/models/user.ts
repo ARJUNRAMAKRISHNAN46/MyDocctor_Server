@@ -1,4 +1,4 @@
-import { UserEntity } from '@/domain/entities';
+import { UserEntity } from '../../../../domain/entities';
 import mongoose, { model } from 'mongoose';
 
 enum Gender {
@@ -53,7 +53,7 @@ const userSchema = new mongoose.Schema({
   education: {
     type: String,
   },
-  dateOfBirth: {
+  dob: {
     type: String,
   },
   languagesKnown: {
