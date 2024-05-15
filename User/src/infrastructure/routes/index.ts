@@ -13,6 +13,7 @@ export const routes = (dependencies: IDependencies) => {
     updatePassword,
     forgotPassword,
     verifyDoctor,
+    listUser,
   } = controllers(dependencies);
 
   const router = Router();
@@ -34,6 +35,8 @@ export const routes = (dependencies: IDependencies) => {
   router.route("/forgotPassword").post(forgotPassword);
 
   router.route("/verify-doctor").get(verifyDoctor);
+
+  router.route("/list-users").get(listUser);
 
   return router;
 };

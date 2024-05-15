@@ -7,3 +7,4 @@ export * from './verifyUserUseCase';
 export * from './verifyOtpUseCase';
 export * from './userSignupUseCase';
 export * from './isExitUseCase';
+export * from './listUserUseCase';

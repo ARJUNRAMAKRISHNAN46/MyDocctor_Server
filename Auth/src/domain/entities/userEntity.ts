@@ -1,45 +1,62 @@
-import { ObjectId } from 'mongoose';
+import { Document } from 'mongoose';
 
 enum Gender {
-    male = 'male',
-    female = 'female',
-    other = 'other'
+  Male = 'male',
+  Female = 'female',
+  Other = 'other',
 }
 
-export interface AvailableShift {
-    date: string;
-    methods: { method: string; status: boolean }[];
-    shifts: { shift: string; slots: { time: string; status: string }[] }[];
-  }
-  
-
-export interface UserEntity {
-    _id: ObjectId,
-    name: string,
-    email: string,
-    password?: string,
-    mobileNumber?: string,
-    role?: string,
-    isBlocked?: boolean,
-    otp: string;
-    dob?: string,
-    favouriteDoctor: object[],
-    address:object[],
-    appointments: object[],
-    expertise?: string;
-    education?: string;
-    dateOfBirth?: string;
-    languagesKnown?: string[];
-    currentWorkingHospital?: string;
-    gender?: Gender,
-    yearsOfExperience?: number;
-    workingDays?: string[];
-    medicalLisenceNumber?: string;
-    avatar?: string,
-    isVerified?: boolean,
-    createdAt?: Date;
-    updatedAt?: Date;
-    isActive?: boolean;
-    isProfile?: boolean;
-    availableShifts: AvailableShift[];
+interface ShiftSlot {
+  time: string;
+  status: string;
 }
+
+interface Shift {
+  shift: string;
+  slots: ShiftSlot[];
+}
+
+interface Method {
+  method: string;
+  status: boolean;
+}
+
+interface AvailableShift {
+  date: string;
+  methods: Method[];
+  shifts: Shift[];
+}
+
+export interface UserEntity extends Document {
+  name: string;
+  email: string;
+  password: string;
+  otp?: string;
+  mobileNumber?: string;
+  role?: string;
+  isBlocked?: boolean;
+  country?: string;
+  state?: string;
+  city?: string;
+  pincode?: string;
+  expertise?: string;
+  education?: string;
+  dateOfBirth?: string;
+  languagesKnown?: string[];
+  currentWorkingHospital?: string;
+  gender?: Gender;
+  yearsOfExperience?: number;
+  workingDays?: string[];
+  medicalLicenseNumber?: string;
+  experienceCertificate?: string;
+  profilePhoto?: string;
+  medicalLicense?: string;
+  isVerified?: boolean;
+  createdAt?: Date;
+  updatedAt?: Date;
+  isActive?: boolean;
+  isProfile?: boolean;
+  qualification?: string;
+  availableShift?: AvailableShift[];
+}
+

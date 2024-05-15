@@ -4,9 +4,8 @@ import { createSubscriber } from "./subscriber";
 export const runConsumer = async () => {
     try {
         await consumer.connect()
-
         await consumer.subscribe({
-            topic: 'to-user',
+            topic: 'from-doctor' || 'from-user',
             fromBeginning: true
         })
         const subscriber: any = createSubscriber()
@@ -16,6 +15,7 @@ export const runConsumer = async () => {
                 const {key, value} = message
                 console.log(key,'🚀🚀🚀🚀🚀🚀🚀');
                 const subscriberMethod = String(key)
+                console.log("🚀🚀🚀🚀🚀🚀🚀🚀 ~ eachMessage: ~ subscriberMethod:", subscriberMethod)
                 const subscriberData = JSON.parse(String(value))
                 console.log("🚀 ~ eachMessage: ~ subscriberData:", subscriberData)
 

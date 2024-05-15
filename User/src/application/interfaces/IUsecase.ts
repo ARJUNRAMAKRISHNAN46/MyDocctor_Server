@@ -8,6 +8,7 @@ import {
   IVerifyOtpUseCase,
   IUserSignupUseCase,
   IIsExistUseCase,
+  IListUserUseCase,
 } from "../../domain/useCaseInterface";
 
 export interface IUseCases {
@@ -20,4 +21,5 @@ export interface IUseCases {
   verifyOtpUseCase: (dependencies: any) => IVerifyOtpUseCase;
   userSignupUseCase: (dependencies: any) => IUserSignupUseCase;
   isExistUseCase: (dependencies: any) => IIsExistUseCase;
+  listUserUseCase: (dependencies: any) => IListUserUseCase;
 }

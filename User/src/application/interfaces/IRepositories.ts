@@ -9,4 +9,5 @@ export interface IRepositories {
     verifyOtp: (email: string, otp: string) => Promise<boolean>;
     userSignup: (data: UserEntity) => Promise<UserEntity | null>;
     isExist: (token: string) => Promise<UserEntity | null>;
+    listUser: () => Promise<UserEntity[] | null>;
 }
