@@ -1,4 +1,4 @@
-import { UserEntity } from "../../domain/entities";
+import { SpecialityEntity, UserEntity } from "../../domain/entities";
 
 export interface IRepositories {
     createUser: (data: UserEntity) => Promise<UserEntity | null>;
@@ -10,4 +10,6 @@ export interface IRepositories {
     userSignup: (data: UserEntity) => Promise<UserEntity | null>;
     isExist: (token: string) => Promise<UserEntity | null>;
     listUser: () => Promise<UserEntity[] | null>;
+    addSpeciality: (data: SpecialityEntity) => Promise<SpecialityEntity | null>;
+    listSpeciality: () => Promise<SpecialityEntity[] | null>;
 }

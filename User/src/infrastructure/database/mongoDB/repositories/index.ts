@@ -9,3 +9,5 @@ export * from './verifyOtp';
 export * from './userSignup';
 export * from './isExist';
 export * from './listUser';
+export * from './addSpeciality';
+export * from './listSpeciality';

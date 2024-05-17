@@ -8,3 +8,5 @@ export * from './verifyOtpUseCase';
 export * from './userSignupUseCase';
 export * from './isExitUseCase';
 export * from './listUserUseCase';
+export * from './addSpecialityUseCase';
+export * from './listSpecialityUseCase';

@@ -1,4 +1,4 @@
-import { UserEntity, bookingEntity } from "@/domain/entities";
+import { bookingEntity } from "@/domain/entities";
 import { IDependencies } from "../interfaces/IDependencies";
 
 export const updateBookingUseCase = (dependencies: IDependencies) => {
@@ -12,7 +12,7 @@ export const updateBookingUseCase = (dependencies: IDependencies) => {
                 const updateData = await updateBooking(data,id);
                 console.log("🚀 ~ execute:async ~ updateData:", updateData);
 
-                return updateData as UserEntity;
+                return updateData
             } catch (error: any) {
                 throw new Error(error?.message);
             }

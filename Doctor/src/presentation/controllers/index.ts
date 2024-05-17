@@ -5,6 +5,7 @@ import { listDoctorController } from "./listDoctors";
 import { findDoctorByIdController } from "./findDoctorById";
 import { blockUserController } from "./blockUser";
 import { updateBookingController } from "./updateBooking";
+import { findDoctorBySpecialityController } from "./findDoctorBySpeciality";
 export const controllers = (dependencies: IDependencies) => {
   return {
     verifyDoctor: verifyDoctorController(dependencies),
@@ -13,5 +14,6 @@ export const controllers = (dependencies: IDependencies) => {
     findDoctorById: findDoctorByIdController(dependencies),
     blockUser: blockUserController(dependencies),
     updateBooking: updateBookingController(dependencies),
+    findDoctorBySpeciality: findDoctorBySpecialityController(dependencies),
   };
 };

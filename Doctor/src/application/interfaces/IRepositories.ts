@@ -9,4 +9,5 @@ export interface IRepositories {
     listDoctor: () => Promise<UserEntity[] | null>;
     blockUser: (id: string) => Promise<UserEntity | null>;
     updateBooking: (data: bookingEntity, id: string) => Promise<UserEntity | null>;
+    findDoctorBySpeciality: (speciality: string) => Promise<UserEntity[] | null>;
 }

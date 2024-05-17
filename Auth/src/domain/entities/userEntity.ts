@@ -21,7 +21,7 @@ interface Method {
   status: boolean;
 }
 
-interface AvailableShift {
+interface AvailableShifts {
   date: string;
   methods: Method[];
   shifts: Shift[];
@@ -57,6 +57,6 @@ export interface UserEntity extends Document {
   isActive?: boolean;
   isProfile?: boolean;
   qualification?: string;
-  availableShift?: AvailableShift[];
+  availableShifts?: AvailableShifts[];
 }
 

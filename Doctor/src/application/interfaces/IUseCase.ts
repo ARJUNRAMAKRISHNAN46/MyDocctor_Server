@@ -7,6 +7,7 @@ import {
   IListDoctorUseCase,
   IBlockUserUseCase,
   IUpdateBookingUseCase,
+  IFindDoctorBySpecialityUseCase,
 } from "../../domain/useCaseInterface";
 
 export interface IUseCases {
@@ -18,4 +19,5 @@ export interface IUseCases {
   listDoctorsUseCase: (dependencies: any) => IListDoctorUseCase;
   blockUserUseCase: (dependencies: any) => IBlockUserUseCase;
   updateBookingUseCase: (dependencies: any) => IUpdateBookingUseCase;
+  findDoctorBySpecialityUseCase: (dependencies: any) => IFindDoctorBySpecialityUseCase;
 }

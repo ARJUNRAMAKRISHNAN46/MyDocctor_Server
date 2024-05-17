@@ -9,6 +9,8 @@ import { updatePassword } from "./updatePassword";
 import { forgotPassword } from "./forgotPassword";
 import { verifyDoctorController } from "./verifyDoctor";
 import { listUserController } from "./listUser";
+import { addSpecialityController } from "./addSpeciality";
+import { listSpecialityController } from "./listSpeciality";
 
 export const controllers = (dependencies: IDependencies) => {
   return {
@@ -22,5 +24,7 @@ export const controllers = (dependencies: IDependencies) => {
     forgotPassword: forgotPassword(dependencies),
     verifyDoctor: verifyDoctorController(dependencies),
     listUser: listUserController(dependencies),
+    addSpeciality: addSpecialityController(dependencies),
+    listSpeciality: listSpecialityController(dependencies),
   };
 };

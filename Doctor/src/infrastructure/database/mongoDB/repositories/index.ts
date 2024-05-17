@@ -6,3 +6,4 @@ export * from './verifyUser';
 export * from './listDoctors';
 export * from './blockUser';
 export * from './updateBooking';
+export * from './findDoctorBySpeciality';

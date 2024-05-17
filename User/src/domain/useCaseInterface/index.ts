@@ -8,3 +8,5 @@ export * from './IVerifyOtpUseCase';
 export * from './IUserSignupUseCase';
 export * from './IIsExistUseCase';
 export * from './IListUserUseCase';
+export * from './IAddSpecialityUseCase';
+export * from './IListSpecialityUseCase';

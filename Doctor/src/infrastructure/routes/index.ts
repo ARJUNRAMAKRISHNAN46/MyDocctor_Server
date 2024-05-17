@@ -10,6 +10,7 @@ export const routes = (dependencies: IDependencies) => {
     findDoctorById,
     blockUser,
     updateBooking,
+    findDoctorBySpeciality,
   } = controllers(dependencies);
 
   const router = Router();
@@ -24,7 +25,9 @@ export const routes = (dependencies: IDependencies) => {
 
   router.route("/block-user/:id").get(blockUser);
 
-  router.route("/update-booking/:id").post(updateBooking);
+  router.route("/update-booking/:id").put(updateBooking);
+
+  router.route("/find-doctor").get(findDoctorBySpeciality);
 
   return router;
 };

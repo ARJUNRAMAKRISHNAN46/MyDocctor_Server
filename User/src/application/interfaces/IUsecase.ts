@@ -9,6 +9,8 @@ import {
   IUserSignupUseCase,
   IIsExistUseCase,
   IListUserUseCase,
+  IAddSpecialityUseCase,
+  IListSpecialityUseCase,
 } from "../../domain/useCaseInterface";
 
 export interface IUseCases {
@@ -22,4 +24,6 @@ export interface IUseCases {
   userSignupUseCase: (dependencies: any) => IUserSignupUseCase;
   isExistUseCase: (dependencies: any) => IIsExistUseCase;
   listUserUseCase: (dependencies: any) => IListUserUseCase;
+  addSpecialityUseCase: (dependencies: any) => IAddSpecialityUseCase;
+  listSpecialityUseCase: (dependencies: any) => IListSpecialityUseCase
 }

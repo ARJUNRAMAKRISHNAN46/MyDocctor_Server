@@ -1,4 +1,5 @@
-import { IDependencies } from "@/application/interfaces/IDependencies";
+import { IDependencies } from "../../application/interfaces/IDependencies";
+import { updateBookingProducer } from "../../infrastructure/kafka/producers/updateBookingProducer";
 import { Request, Response, NextFunction } from "express";
 
 export const updateBookingController = (dependencies: IDependencies) => {
@@ -20,6 +21,8 @@ export const updateBookingController = (dependencies: IDependencies) => {
                     message: "error while doctor slot updation",
                 });
             };
+
+            updateBookingProducer(updatedData);
 
             res.status(200).json({
                 success: true,

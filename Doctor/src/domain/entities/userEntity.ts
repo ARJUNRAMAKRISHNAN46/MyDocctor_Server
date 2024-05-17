@@ -40,7 +40,7 @@ export interface UserEntity {
   pincode?: string;
   expertise?: string;
   education?: string;
-  dateOfBirth?: string;
+  dob?: string;
   languagesKnown?: string[];
   currentWorkingHospital?: string;
   gender?: Gender;
@@ -56,5 +56,5 @@ export interface UserEntity {
   isActive?: boolean;
   isProfile?: boolean;
   qualification?: string;
-  availableShift?: AvailableShift[];
+  availableShifts?: AvailableShift[];
 }

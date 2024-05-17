@@ -16,10 +16,14 @@ export const runConsumer = async () => {
                 console.log(key,'🚀🚀🚀🚀🚀🚀🚀');
                 const subscriberMethod = String(key)
                 const subscriberData = JSON.parse(String(value))
-                console.log("🚀 ~ eachMessage: ~ subscriberData ~ :", subscriberData);
+                console.log("🚀 ~ eachMessage: ~ subscriberData ~ :",subscriberMethod, subscriberData);
 
                 try{
-                    await subscriber[subscriberMethod](subscriberData);
+                    if(subscriber[subscriberMethod]) {
+                        await subscriber[subscriberMethod](subscriberData);
+                    } else {
+                        console.log("Feature not implemented !")
+                    }
                 } catch(error: any) {
                     throw new Error(error?.message)
                 }
