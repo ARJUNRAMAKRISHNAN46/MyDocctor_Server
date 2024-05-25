@@ -59,6 +59,9 @@ const userSchema = new mongoose.Schema({
   languagesKnown: {
     type: [String],
   },
+  calendlyLink: {
+    type: String,
+  },
   currentWorkingHospital: {
     type: String,
   },

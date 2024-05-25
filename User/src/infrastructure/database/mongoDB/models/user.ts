@@ -1,7 +1,13 @@
-import mongoose, { Schema, model } from "mongoose";
-import { UserEntity } from "../../../../domain/entities";
+import { UserEntity } from '@/domain/entities';
+import mongoose, { model } from 'mongoose';
 
-const userSchema = new Schema({
+enum Gender {
+  Male = 'male',
+  Female = 'female',
+  Other = 'other',
+}
+
+const userSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -16,41 +22,31 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
+  otp: {
+    type: String,
+  },
   mobileNumber: {
     type: String,
-    required: true,
   },
   role: {
     type: String,
   },
-  isBloked: {
+  isBlocked: {
     type: Boolean,
     default: false,
   },
-  otp: {
+  country: {
     type: String,
   },
-  favouriteDoctor: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Doctor",
-    },
-  ],
-  address: [
-    {
-      street: String,
-      city: String,
-      state: String,
-      country: String,
-      pincode: String,
-    },
-  ],
-  appointments: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "appointments",
-    },
-  ],
+  state: {
+    type: String,
+  },
+  city: {
+    type: String,
+  },
+  pincode: {
+    type: String,
+  },
   expertise: {
     type: String,
   },
@@ -68,7 +64,7 @@ const userSchema = new Schema({
   },
   gender: {
     type: String,
-    enum: ["male", "female", "other"],
+    enum: Object.values(Gender),
   },
   yearsOfExperience: {
     type: Number,
@@ -76,10 +72,16 @@ const userSchema = new Schema({
   workingDays: {
     type: [String],
   },
-  medicalLisenceNumber: {
+  medicalLicenseNumber: {
     type: String,
   },
-  avatar: {
+  experienceCertificate: {
+    type: String,
+  },
+  profilePhoto: {
+    type: String,
+  },
+  medicalLicense: {
     type: String,
   },
   isVerified: {
@@ -101,7 +103,30 @@ const userSchema = new Schema({
   isProfile: {
     type: Boolean,
     default: false,
-  }
+  },
+  calendlyLink: {
+    type: String,
+  },
+  qualification: {
+    type: String,
+  },
+  availableShifts: {
+    type: [{
+      date: String,
+      methods: [{
+        method: String,
+        status: Boolean,
+      }],
+      shifts: [{
+        shift: String,
+        slots: [{
+          time: String,
+          status: String,
+        }],
+      }],
+    }],
+    default: [],
+  },
 });
 
 export const User = model<UserEntity>("users", userSchema);

@@ -5,10 +5,11 @@ export const updateUser = async (
   data: UserEntity
 ): Promise<UserEntity | null> => {
   try {
-    const { _id, ...rest } = data;
+    const { email, ...rest } = data;
+    console.log("🚀 ~ email:", email)
 
-    const updated = await User.findByIdAndUpdate(
-      _id,
+    const updated = await User.findOneAndUpdate(
+      { email: email },
       {
         $set: { ...rest },
       },

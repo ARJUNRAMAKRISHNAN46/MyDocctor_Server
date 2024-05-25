@@ -49,6 +49,7 @@ export interface UserEntity {
   medicalLicenseNumber?: string;
   experienceCertificate?: string;
   profilePhoto?: string;
+  calendlyLink?: string;
   medicalLicense?: string;
   isVerified?: boolean;
   createdAt?: Date;

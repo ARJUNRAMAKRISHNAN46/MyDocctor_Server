@@ -5,10 +5,13 @@ export const updateUser = async (
   data: UserEntity
 ): Promise<UserEntity | null> => {
   try {
-    const { _id, ...rest } = data;
-
-    const updated = await User.findByIdAndUpdate(
-      _id,
+    const { email, ...rest } = data;
+    console.log("🚀 ~ rest:", rest);
+    console.log("🚀 ~ _id:", email);
+const exist = await User.find();
+    console.log("🚀 ~ exist:", exist)
+    const updated = await User.findOneAndUpdate(
+      { email: email },
       {
         $set: { ...rest },
       },
@@ -23,6 +26,7 @@ export const updateUser = async (
 
     return updated;
   } catch (error: any) {
-    throw new Error(error?.message);
+    console.error("Error updating user:", error.message);
+    throw new Error(`Failed to update user: ${error.message}`);
   }
 };

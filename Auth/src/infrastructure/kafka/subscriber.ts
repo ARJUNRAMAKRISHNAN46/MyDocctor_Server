@@ -10,5 +10,6 @@ export const createSubscriber = () => {
         verifyDoctor: verifyDoctorConsumer,
         blockUser: blockUserConsumer,
         updatedBooking: updateBookingConsumer,
+        userProfileUpdate: userUpdateConsumer
     }
 }

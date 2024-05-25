@@ -36,6 +36,7 @@ export interface UserEntity {
     workingDays?: string[];
     medicalLisenceNumber?: string;
     profilePhoto?: string,
+    calendlyLink?: string,
     isVerified?: boolean,
     createdAt?: Date;
     updatedAt?: Date;

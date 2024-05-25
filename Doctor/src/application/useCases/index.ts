@@ -7,3 +7,4 @@ export * from './listDoctorUseCase';
 export * from './blockUserUseCase';
 export * from './updateBookingUseCase';
 export * from './findDoctorBySpecialityUseCase';
+export * from './addAppointmentLinkUseCase';

@@ -11,6 +11,7 @@ export const routes = (dependencies: IDependencies) => {
     blockUser,
     updateBooking,
     findDoctorBySpeciality,
+    addAppointmentLink,
   } = controllers(dependencies);
 
   const router = Router();
@@ -28,6 +29,8 @@ export const routes = (dependencies: IDependencies) => {
   router.route("/update-booking/:id").put(updateBooking);
 
   router.route("/find-doctor").get(findDoctorBySpeciality);
+
+  router.route("/add-link/:id").post(addAppointmentLink);
 
   return router;
 };

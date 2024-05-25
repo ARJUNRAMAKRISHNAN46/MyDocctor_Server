@@ -10,4 +10,5 @@ export interface IRepositories {
     blockUser: (id: string) => Promise<UserEntity | null>;
     updateBooking: (data: bookingEntity, id: string) => Promise<UserEntity | null>;
     findDoctorBySpeciality: (speciality: string) => Promise<UserEntity[] | null>;
+    addAppointmentLink: (id: string, link: string) => Promise<UserEntity | null>;
 }

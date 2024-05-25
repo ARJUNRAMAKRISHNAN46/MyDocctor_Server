@@ -72,6 +72,9 @@ const userSchema = new mongoose.Schema({
   workingDays: {
     type: [String],
   },
+  calendlyLink: {
+    type: String,
+  },
   medicalLicenseNumber: {
     type: String,
   },

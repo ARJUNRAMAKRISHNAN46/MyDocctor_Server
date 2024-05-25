@@ -51,6 +51,7 @@ export interface UserEntity extends Document {
   experienceCertificate?: string;
   profilePhoto?: string;
   medicalLicense?: string;
+  calendlyLink?: string;
   isVerified?: boolean;
   createdAt?: Date;
   updatedAt?: Date;

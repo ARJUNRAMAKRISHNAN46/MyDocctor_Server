@@ -5,7 +5,7 @@ export const runConsumer = async () => {
     try {
         await consumer.connect()
         await consumer.subscribe({
-            topic: 'from-doctor' || 'from-auth',
+            topics:[ 'from-doctor', 'from-auth'],
             fromBeginning: true
         })
         const subscriber: any = createSubscriber()
