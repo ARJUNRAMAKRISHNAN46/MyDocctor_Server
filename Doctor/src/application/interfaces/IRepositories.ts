@@ -1,3 +1,4 @@
+import { FilterParams } from "@/domain/entities/filterParams";
 import { UserEntity, bookingEntity } from "../../domain/entities";
 
 export interface IRepositories {
@@ -11,4 +12,5 @@ export interface IRepositories {
     updateBooking: (data: bookingEntity, id: string) => Promise<UserEntity | null>;
     findDoctorBySpeciality: (speciality: string) => Promise<UserEntity[] | null>;
     addAppointmentLink: (id: string, link: string) => Promise<UserEntity | null>;
+    filterDoctor: (params: FilterParams) => Promise<UserEntity[] | null>;
 }

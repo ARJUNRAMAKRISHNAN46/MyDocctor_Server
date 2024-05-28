@@ -3,7 +3,7 @@ import { UserEntity } from "../../../../domain/entities";
 
 export const listDoctor = async (): Promise<UserEntity[] | null> => {
   try {
-    const doctors = await User.find({role: "doctor", isVerified: true, isActive: true});
+    const doctors = await User.find({role: "doctor"});
     console.log("🚀 ~ listUser ~ doctors:", doctors);
 
     return doctors;

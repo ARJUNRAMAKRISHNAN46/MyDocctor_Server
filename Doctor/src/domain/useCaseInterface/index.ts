@@ -8,3 +8,4 @@ export * from './IBlockUserUseCase';
 export * from './IUpdateBookingUseCase';
 export * from './IFindDoctorBySpecialityUseCase';
 export * from './IAddAppointmentLinkUseCase';
+export * from './IFilterDoctorUseCase';

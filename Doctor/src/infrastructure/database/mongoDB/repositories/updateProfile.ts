@@ -17,7 +17,7 @@ export const updateProfile = async (
       throw new Error("User not found");
     }
 
-    return updated.toObject();
+    return updated
   } catch (error: any) {
     throw new Error(error.message);
   }

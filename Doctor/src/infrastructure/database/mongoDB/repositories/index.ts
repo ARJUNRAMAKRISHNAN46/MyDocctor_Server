@@ -8,3 +8,4 @@ export * from './blockUser';
 export * from './updateBooking';
 export * from './findDoctorBySpeciality';
 export * from './addAppointmentLink';
+export * from './FilterDoctor';
