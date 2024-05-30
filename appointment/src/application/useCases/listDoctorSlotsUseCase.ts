@@ -6,9 +6,9 @@ export const listDoctorSlotsUseCase = (dependencies: IDependencies) => {
   } = dependencies;
 
   return {
-    execute: async (doctor_id: string) => {
+    execute: async (doctor_id: string, selectedDate: string) => {
       try {
-        const doctorSlots = await listDoctorSlots(doctor_id);
+        const doctorSlots = await listDoctorSlots(doctor_id, selectedDate);
         console.log("🚀 ~ execute:async ~ doctorSlots:", doctorSlots);
 
         return doctorSlots;

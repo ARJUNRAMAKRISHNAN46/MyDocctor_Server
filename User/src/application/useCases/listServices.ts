@@ -1,16 +1,16 @@
 import { IDependencies } from "../interfaces/IDependencies";
 
-export const listSpecialityUseCase = (dependencies: IDependencies) => {
+export const listServiceUseCase = (dependencies: IDependencies) => {
   const {
-    repositories: { listSpeciality },
+    repositories: { serviceLists },
   } = dependencies;
 
   return {
     execute: async () => {
       try {
-        const specialityList = await listSpeciality();
+        const serviceList = await serviceLists();
 
-        return specialityList;
+        return serviceList;
       } catch (error: any) {
         return null;
       }

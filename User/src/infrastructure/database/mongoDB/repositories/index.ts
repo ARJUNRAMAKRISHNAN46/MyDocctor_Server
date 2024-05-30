@@ -5,3 +5,5 @@ export * from "./verifyUser";
 export * from "./listUser";
 export * from "./addSpeciality";
 export * from "./listSpeciality";
+export * from './addServices';
+export * from './listServices';

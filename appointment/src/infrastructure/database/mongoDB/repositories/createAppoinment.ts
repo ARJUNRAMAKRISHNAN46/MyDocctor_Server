@@ -6,6 +6,7 @@ export const createAppointment = async (
 ): Promise<AppointmentEntity | null> => {
   try {
     const existSlot = await Appointment.findOne({ doctorId: data.doctorId, date: data.date });
+    console.log("🚀 ~ existSlot:", existSlot)
     if (existSlot) {
       return null;
     }

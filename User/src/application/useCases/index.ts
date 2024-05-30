@@ -5,3 +5,5 @@ export * from "./listUserUseCase";
 export * from "./addSpecialityUseCase";
 export * from "./listSpecialityUseCase";
 export * from "./updateProfileUseCase";
+export * from "./addService";
+export * from "./listServices";

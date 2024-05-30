@@ -1,18 +1,17 @@
 import { IDependencies } from "@/application/interfaces/IDependencies";
 import { Request, Response, NextFunction } from "express";
 
-export const listDoctorSlotsController = (dependencies: IDependencies) => {
-    const { useCases: { listDoctorSlotsUseCase } } = dependencies;
+export const slotListingController = (dependencies: IDependencies) => {
+    const { useCases: { slotListingUseCase } } = dependencies;
 
     return async (req: Request, res: Response, next: NextFunction) => {
         try {
             const id = req.params.id;
-            const selectedDate = String(req.query.date);
 
-            const listDoctorSlots = await listDoctorSlotsUseCase(dependencies).execute(id, selectedDate);
-            console.log("🚀 ~ return ~ listDoctorSlots:", listDoctorSlots);
+            const slotListing = await slotListingUseCase(dependencies).execute(id);
+            console.log("🚀 ~ return ~ slotListing:", slotListing)
 
-            if (!listDoctorSlots) {
+            if (!slotListing) {
                 res.status(400).json({
                   success: false,
                   data: null,
@@ -22,7 +21,7 @@ export const listDoctorSlotsController = (dependencies: IDependencies) => {
         
               res.status(200).json({
                 succuss: true,
-                data: listDoctorSlots,
+                data: slotListing,
                 message: "doctor slots listed successfully",
               });
         } catch (error: any) {

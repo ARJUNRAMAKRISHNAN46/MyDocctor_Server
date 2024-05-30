@@ -5,7 +5,8 @@ import { controllers } from "../../presentation/controllers";
 export const routes = (dependencies: IDependencies) => {
   const {
    createAppoinment,
-   listDoctorSlots
+   listDoctorSlots,
+   slotListing,
   } = controllers(dependencies);
 
   const router = Router();
@@ -13,6 +14,8 @@ export const routes = (dependencies: IDependencies) => {
   router.route("/create-appointment").post(createAppoinment);
 
   router.route("/list-doctor-slots/:id").get(listDoctorSlots);
+
+  router.route("/list-slots/:id").get(slotListing);
   
   return router;
 };

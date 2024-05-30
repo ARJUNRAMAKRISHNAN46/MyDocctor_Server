@@ -14,13 +14,13 @@ export const addSpecialityController = (dependencies: IDependencies) => {
             if (!addSpeciality) {
                 res.status(400).json({
                   success: false,
-                  message: "speciality adding failed",
+                  message: "service adding failed",
                 });
               }
         
               res.status(200).json({
                 succuss: true,
-                message: "speciality added successfully",
+                message: "service added successfully",
               });
         } catch (error: any) {
             res.status(400).json({

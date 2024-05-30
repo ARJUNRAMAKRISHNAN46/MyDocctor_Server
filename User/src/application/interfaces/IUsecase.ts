@@ -6,6 +6,8 @@ import {
   IAddSpecialityUseCase,
   IListSpecialityUseCase,
   IUpdateUserProfileUseCase,
+  IAddServiceUseCase,
+  IListServiceUseCase,
 } from "../../domain/useCaseInterface";
 
 export interface IUseCases {
@@ -15,5 +17,7 @@ export interface IUseCases {
   listUserUseCase: (dependencies: any) => IListUserUseCase;
   addSpecialityUseCase: (dependencies: any) => IAddSpecialityUseCase;
   listSpecialityUseCase: (dependencies: any) => IListSpecialityUseCase;
-  updateProfileUseCase: (dependencies: any) => IUpdateUserProfileUseCase
+  updateProfileUseCase: (dependencies: any) => IUpdateUserProfileUseCase;
+  addServiceUseCase: (dependencies: any) => IAddServiceUseCase;
+  listServiceUseCase: (dependencies: any) => IListServiceUseCase;
 }

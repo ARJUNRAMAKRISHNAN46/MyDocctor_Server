@@ -1,3 +1,4 @@
+import { ServiceEntity } from "@/domain/entities/service";
 import { SpecialityEntity, UserEntity } from "../../domain/entities";
 
 export interface IRepositories {
@@ -8,4 +9,6 @@ export interface IRepositories {
     addSpeciality: (data: SpecialityEntity) => Promise<SpecialityEntity | null>;
     listSpeciality: () => Promise<SpecialityEntity[] | null>;
     updateUser: (data: UserEntity) => Promise<UserEntity | null>;
+    addService: (data: ServiceEntity) => Promise<ServiceEntity | null>;
+    serviceLists: () => Promise<ServiceEntity[] | null>;
 }

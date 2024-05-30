@@ -9,6 +9,8 @@ export const routes = (dependencies: IDependencies) => {
     addSpeciality,
     listSpeciality,
     updateProfile,
+    listService,
+    addService,
   } = controllers(dependencies);
 
   const router = Router();
@@ -17,11 +19,15 @@ export const routes = (dependencies: IDependencies) => {
 
   router.route("/list-users").get(listUser);
 
-  router.route("/addSpeciality").post(addSpeciality);
+  router.route("/add-speciality").post(addSpeciality);
 
   router.route("/list-speciality").get(listSpeciality);
 
-  router.route("/update-profile").post(updateProfile)
+  router.route("/update-profile").post(updateProfile);
+
+  router.route("/list-services").get(listService);
+
+  router.route("/add-service").post(addService);
 
   return router;
 };

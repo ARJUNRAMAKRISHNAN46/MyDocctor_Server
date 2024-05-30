@@ -6,10 +6,6 @@ const slotSchema = new Schema({
         type: String,
         required: true
     },
-    end: {
-        type: String,
-        required: true
-    },
     userId: {
         String,
     }
@@ -22,7 +18,6 @@ const appointmentSchema = new Schema({
     },
     consultationMethods: {
         type: [String],
-        enum: ['in-person', 'phone', 'video'],
     },
     slots: {
         type: [slotSchema],
