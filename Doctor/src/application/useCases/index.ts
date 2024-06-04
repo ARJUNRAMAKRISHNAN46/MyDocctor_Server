@@ -9,3 +9,4 @@ export * from './updateBookingUseCase';
 export * from './findDoctorBySpecialityUseCase';
 export * from './addAppointmentLinkUseCase';
 export * from './filterDoctorUseCase';
+export * from './searchDoctorUseCase';

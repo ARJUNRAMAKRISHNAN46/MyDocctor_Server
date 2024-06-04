@@ -13,4 +13,5 @@ export interface IRepositories {
     findDoctorBySpeciality: (speciality: string) => Promise<UserEntity[] | null>;
     addAppointmentLink: (id: string, link: string) => Promise<UserEntity | null>;
     filterDoctor: (params: FilterParams) => Promise<UserEntity[] | null>;
+    searchDoctor: (query: string) => Promise<UserEntity[] | null>;
 }

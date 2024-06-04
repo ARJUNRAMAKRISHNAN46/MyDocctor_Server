@@ -10,6 +10,7 @@ import {
   IFindDoctorBySpecialityUseCase,
   IAddAppointmentLinkUseCase,
   IFilterDoctorUseCase,
+  ISearchDoctorUseCase,
 } from "../../domain/useCaseInterface";
 
 export interface IUseCases {
@@ -24,4 +25,5 @@ export interface IUseCases {
   findDoctorBySpecialityUseCase: (dependencies: any) => IFindDoctorBySpecialityUseCase;
   addAppointmentLinkUseCase: (dependencies: any) => IAddAppointmentLinkUseCase;
   filterDoctorUseCase: (dependencies: any) => IFilterDoctorUseCase;
+  searchDoctorUseCase: (dependencies: any) => ISearchDoctorUseCase;
 }
