@@ -4,8 +4,13 @@ import { controllers } from "../../presentation/controllers";
 import { JWTMiddleware } from "../../utils/middleware/JWTMiddleware";
 
 export const routes = (dependencies: IDependencies) => {
-  const { createAppoinment, listDoctorSlots, slotListing, updateAppoinment } =
-    controllers(dependencies);
+  const {
+    createAppoinment,
+    listDoctorSlots,
+    slotListing,
+    updateAppoinment,
+    listUsersForSideBar,
+  } = controllers(dependencies);
 
   const router = Router();
 
@@ -16,6 +21,8 @@ export const routes = (dependencies: IDependencies) => {
   router.route("/list-slots/:id").get(JWTMiddleware, slotListing);
 
   router.route("/update-appoinment").post(JWTMiddleware, updateAppoinment);
+
+  router.route("/list-users/:id").get(listUsersForSideBar);
 
   return router;
 };

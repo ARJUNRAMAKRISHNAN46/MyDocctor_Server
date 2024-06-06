@@ -1,7 +1,6 @@
 import { Router } from "express";
 import { IDependencies } from "@/application/interfaces/IDependencies";
 import { controllers } from "../../presentation/controllers";
-import { JWTMiddleware } from "../..//utils/middleware/JWTMiddleware";
 
 export const routes = (dependencies: IDependencies) => {
   const {
@@ -18,15 +17,15 @@ export const routes = (dependencies: IDependencies) => {
 
   router.route("/verify-doctor").get(verifyDoctor);
 
-  router.route("/list-users").get(JWTMiddleware, listUser);
+  router.route("/list-users").get(listUser);
 
   router.route("/add-speciality").post(addSpeciality);
 
-  router.route("/list-speciality").get(JWTMiddleware, listSpeciality);
+  router.route("/list-speciality").get(listSpeciality);
 
   router.route("/update-profile").post(updateProfile);
 
-  router.route("/list-services").get(JWTMiddleware, listService);
+  router.route("/list-services").get(listService);
 
   router.route("/add-service").post(addService);
 

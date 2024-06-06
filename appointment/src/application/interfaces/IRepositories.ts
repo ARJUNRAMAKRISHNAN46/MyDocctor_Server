@@ -6,4 +6,5 @@ export interface IRepositories {
    slotListing: (doctorId: string) => Promise<AppointmentEntity[] | null>;
    updateAppoinment: (data: any) => Promise<AppointmentEntity | null>;
    doctorListAppointments: (doctorId: string) => Promise<AppointmentEntity[] | null>;
+   listUsersForSideBar: (doctorId: string) => Promise<string[] | null>;
 }
