@@ -24,16 +24,21 @@ export const JWTMiddleware = (
 ) => {
   try {
     const { access_token, refresh_token } = req.cookies;
-    
+    console.log("🚀 ~ refresh_token:", refresh_token)
+    console.log("🚀 ~ access_token:", access_token)
+    console.log("🚀 ~ access_token:", req.cookies.refresh_token)
 
-    if (!access_token && !refresh_token) {
-      res.status(404).json({
+    if (!access_token || !refresh_token) {
+      console.log("faileddddddddddddddddddddddddd");
+
+      return res.status(404).json({
         success: false,
-        message: "no user found"
-      })
+        message: "no user found",
+      });
     }
+    console.log("herrrrrrrrrrr");
 
-    return next();
+    next();
   } catch (error) {
     console.error("Error in JWT middleware:", error);
     next(error);

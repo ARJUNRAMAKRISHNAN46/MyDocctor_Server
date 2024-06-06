@@ -13,7 +13,7 @@ export const updateAppoinment = async (
         "slots.start": data?.slot,
       },
       {
-        $set: { "slots.$.userId": data?.user_id },
+        $set: { "slots.$.userId": String(data?.user_id) },
       },
       {
         new: true,
