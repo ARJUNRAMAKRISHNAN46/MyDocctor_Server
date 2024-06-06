@@ -1,4 +1,4 @@
-import { AppointmentEntity } from "@/domain/entities";
+import { AppointmentEntity, UserEntity } from "@/domain/entities";
 
 export interface IRepositories {
    createAppointment: (data: AppointmentEntity) => Promise<AppointmentEntity | null>;
@@ -6,5 +6,6 @@ export interface IRepositories {
    slotListing: (doctorId: string) => Promise<AppointmentEntity[] | null>;
    updateAppoinment: (data: any) => Promise<AppointmentEntity | null>;
    doctorListAppointments: (doctorId: string) => Promise<AppointmentEntity[] | null>;
-   listUsersForSideBar: (doctorId: string) => Promise<string[] | null>;
+   listUsersForSideBar: (doctorId: string) => Promise<UserEntity[] | null>;
+   listDoctorsForSideBar: (userId: string) => Promise<UserEntity[] | null>;
 }

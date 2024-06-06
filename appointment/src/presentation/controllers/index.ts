@@ -4,6 +4,7 @@ import { listDoctorSlotsController } from "./listDoctorSlots";
 import { slotListingController } from "./slotListing";
 import { updateAppointmentController } from "./updateAppointment";
 import { listUsersForSideBarController } from "./listUsersForSideBar";
+import { listDoctorsForSideBarController } from "./listDoctorsForSideBar";
 
 export const controllers = (dependencies: IDependencies) => {
   return {
@@ -12,5 +13,6 @@ export const controllers = (dependencies: IDependencies) => {
     slotListing: slotListingController(dependencies),
     updateAppoinment: updateAppointmentController(dependencies),
     listUsersForSideBar: listUsersForSideBarController(dependencies),
+    listDoctorsForSideBar: listDoctorsForSideBarController(dependencies),
   };
 };

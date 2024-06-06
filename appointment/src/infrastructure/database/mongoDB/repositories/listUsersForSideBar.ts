@@ -1,22 +1,25 @@
-// import { AppointmentEntity } from "@/domain/entities";
-import { Appointment } from "../models";
+
+import { UserEntity } from "@/domain/entities";
+import { Appointment, User } from "../models";
 
 export const listUsersForSideBar = async (
   doctorID: string
-): Promise<string[] | null> => {
+): Promise<UserEntity[] | null> => {
   try {
     const pipeline = [
-      { $match: { doctorId: doctorID } }, // Ensure to filter by doctorID
+      { $match: { doctorId: doctorID } },
       { $unwind: "$slots" },
       { $group: { _id: null, userIds: { $addToSet: "$slots.userId" } } },
       { $project: { _id: 0, userIds: 1 } },
     ];
 
-    const result = await Appointment.aggregate(pipeline)
+    const result = await Appointment.aggregate(pipeline);
 
-    // Extract userIds array from the result
     const userIds = result.length > 0 ? result[0].userIds : [];
-    return userIds;
+    console.log("🚀 ~ userIds:", userIds);
+
+    const users = await User.find({ _id: { $in: userIds } }).exec();
+    return users;
   } catch (error: any) {
     console.error("Error fetching user IDs:", error);
     return null;

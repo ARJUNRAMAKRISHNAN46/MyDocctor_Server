@@ -1,7 +1,6 @@
 import { Router } from "express";
 import { IDependencies } from "@/application/interfaces/IDependencies";
 import { controllers } from "../../presentation/controllers";
-// import { JWTMiddleware } from "../../utils/middleware/JWTMiddleware";
 
 export const routes = (dependencies: IDependencies) => {
   const {
@@ -10,6 +9,7 @@ export const routes = (dependencies: IDependencies) => {
     slotListing,
     updateAppoinment,
     listUsersForSideBar,
+    listDoctorsForSideBar,
   } = controllers(dependencies);
 
   const router = Router();
@@ -23,6 +23,8 @@ export const routes = (dependencies: IDependencies) => {
   router.route("/update-appoinment").post(updateAppoinment);
 
   router.route("/list-users/:id").get(listUsersForSideBar);
+
+  router.route("/list-doctors/:id").get(listDoctorsForSideBar);
 
   return router;
 };
