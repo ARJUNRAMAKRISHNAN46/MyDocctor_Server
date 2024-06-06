@@ -7,6 +7,7 @@ import { signupWithGoogle } from "./signupWithGoogle";
 import { loginWithGoogle } from "./loginWithGoogle";
 import { updatePassword } from "./updatePassword";
 import { forgotPassword } from "./forgotPassword";
+import { findUserByIdController } from "./findUserById";
 
 export const controllers = (dependencies: IDependencies) => {
   return {
@@ -18,5 +19,6 @@ export const controllers = (dependencies: IDependencies) => {
     loginGoogle: loginWithGoogle(dependencies),
     updatePassword: updatePassword(dependencies),
     forgotPassword: forgotPassword(dependencies),
+    findUserById: findUserByIdController(dependencies),
   };
 };

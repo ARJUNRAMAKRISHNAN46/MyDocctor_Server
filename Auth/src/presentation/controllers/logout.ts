@@ -5,6 +5,7 @@ export const logoutController = (dependencies: IDependencies) => {
     return async(req: Request, res: Response, next: NextFunction) => {
         try {
             res.clearCookie('access_token');
+            res.clearCookie('refresh_token');
             console.log('cookie cleared');
             
             res.status(200).json({message: 'Logged out'})

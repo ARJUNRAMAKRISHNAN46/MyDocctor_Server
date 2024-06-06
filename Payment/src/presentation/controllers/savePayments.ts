@@ -7,12 +7,9 @@ export const savePaymentController = (dependencies: IDependencies) => {
   } = dependencies;
 
   return async (req: Request, res: Response, next: NextFunction) => {
-    const data = req.body;
-    // const token: string = req.cookies.user_jwt;
-    // const decodedValue: any = verifyToken(token);
-    // data.userId = decodedValue._id;
-    console.log("🚀 ~ file: savePayment.ts:11 ~ return ~ data:", data);
     try {
+      const data = req.body;
+      console.log("🚀 ~ file: savePayment.ts:11 ~ return ~ data:", data);
       const response = await savePaymentUseCase(dependencies).execute(data);
       if (response) {
         console.log(response);

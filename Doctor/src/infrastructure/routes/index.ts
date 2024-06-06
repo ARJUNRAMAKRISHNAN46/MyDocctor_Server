@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { IDependencies } from "@/application/interfaces/IDependencies";
 import { controllers } from "../../presentation/controllers";
+import { JWTMiddleware } from "../../utils/middleware/JWTMiddleware";
 
 export const routes = (dependencies: IDependencies) => {
   const {
@@ -28,7 +29,7 @@ export const routes = (dependencies: IDependencies) => {
 
   router.route("/block-user/:id").get(blockUser);
 
-  router.route("/update-booking/:id").put(updateBooking);
+  router.route("/update-booking/:id").put(JWTMiddleware, updateBooking);
 
   router.route("/find-doctor").get(findDoctorBySpeciality);
 
