@@ -5,3 +5,4 @@ export * from "./updateAppointment";
 export * from "./doctorListAppointments";
 export * from "./listUsersForSideBar";
 export * from "./listDoctorsForSideBar";
+export * from "./userAppointments";

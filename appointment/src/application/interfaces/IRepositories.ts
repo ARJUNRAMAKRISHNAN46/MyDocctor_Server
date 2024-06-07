@@ -8,4 +8,5 @@ export interface IRepositories {
    doctorListAppointments: (doctorId: string) => Promise<AppointmentEntity[] | null>;
    listUsersForSideBar: (doctorId: string) => Promise<UserEntity[] | null>;
    listDoctorsForSideBar: (userId: string) => Promise<UserEntity[] | null>;
+   userAppointment: (userId: string) => Promise<AppointmentEntity[] | null>;
 }

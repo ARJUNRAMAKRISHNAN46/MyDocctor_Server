@@ -5,7 +5,8 @@ import {
   IUpdateAppointmentUseCase,
   IDoctorListAppointmentsUseCase,
   IListUsersForSideBarUseCase,
-  IListDoctorsForSideBarUseCase
+  IListDoctorsForSideBarUseCase,
+  IUserAppointmentUseCase
 } from "@/domain/useCaseInterface";
 
 export interface IUseCases {
@@ -16,4 +17,5 @@ export interface IUseCases {
   doctorListAppointmentsUseCase: (dependencies : any) => IDoctorListAppointmentsUseCase;
   listUsersForSideBarUseCase: (dependencies: any) => IListUsersForSideBarUseCase;
   listDoctorsForSideBarUseCase: (dependencies: any) => IListDoctorsForSideBarUseCase;
+  userAppointmentUseCase: (dependencies: any) => IUserAppointmentUseCase;
 }
