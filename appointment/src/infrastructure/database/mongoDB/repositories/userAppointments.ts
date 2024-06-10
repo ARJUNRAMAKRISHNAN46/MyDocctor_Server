@@ -1,15 +1,43 @@
 import { Appointment } from "../models";
-import { AppointmentEntity } from "@/domain/entities";
+
+export interface UserAppointmentSlot {
+  date: string;
+  time: string;
+  doctorId: string;
+  appId: string
+}
 
 export const userAppointment = async (
   userId: string
-): Promise<AppointmentEntity[] | null> => {
+): Promise<UserAppointmentSlot[] | null> => {
   try {
     const query = { "slots.userId": userId };
-    const appointments = await Appointment.find(query)
+    const appointments = await Appointment.find(query);
 
-    return appointments;
+    if (!appointments) {
+      return null;
+    }
+
+    const userSlots: UserAppointmentSlot[] = [];
+
+    appointments.forEach((appointment) => {
+      appointment.slots.forEach((slot: any) => {
+        console.log(appointment);
+        
+        if (slot.userId && String(slot.userId) === String(userId)) {
+          userSlots.push({
+            appId: appointment._id,
+            date: appointment.date,
+            time: slot.start,
+            doctorId: appointment.doctorId,
+          });
+        }
+      });
+    });
+
+    return userSlots;
   } catch (error: any) {
+    console.error("Error fetching appointments:", error);
     return null;
   }
 };

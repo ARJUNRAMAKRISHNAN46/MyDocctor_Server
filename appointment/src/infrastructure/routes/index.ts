@@ -10,6 +10,7 @@ export const routes = (dependencies: IDependencies) => {
     updateAppoinment,
     listUsersForSideBar,
     listDoctorsForSideBar,
+    userAppointment,
   } = controllers(dependencies);
 
   const router = Router();
@@ -25,6 +26,8 @@ export const routes = (dependencies: IDependencies) => {
   router.route("/list-users/:id").get(listUsersForSideBar);
 
   router.route("/list-doctors/:id").get(listDoctorsForSideBar);
+
+  router.route("/list-user-appointments/:id").get(userAppointment);
 
   return router;
 };
