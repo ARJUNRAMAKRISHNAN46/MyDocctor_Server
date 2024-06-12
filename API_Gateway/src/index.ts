@@ -21,6 +21,6 @@ app.use("/doctor", proxy("http://localhost:4003"));
 app.use("/admin", proxy("http://localhost:4004"));
 app.use("/appointment", proxy("http://localhost:4005"));
 app.use("/payments", proxy("http://localhost:4006"));
-app.use("/chat", proxy("http://localhost:4040"));
+app.use("/chat", proxy("http://localhost:4007"));
 
 app.listen(PORT, () => console.log(`Gateway running at ${PORT}`));
