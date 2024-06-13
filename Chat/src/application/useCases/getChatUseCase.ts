@@ -1,13 +1,13 @@
-import { IDependencies } from "../interfaces/IDependencies";
+// import { IDependencies } from "../interfaces/IDependencies";
 
-export const getChatUseCase = (dependencies: IDependencies) => {
-  const {
-    repositories: { getChat },
-  } = dependencies;
+// export const getChatUseCase = (dependencies: IDependencies) => {
+//   const {
+//     repositories: { getChat },
+//   } = dependencies;
 
-  return {
-    execute: async (id: string) => {
-      return await getChat(id);
-    },
-  };
-};
+//   return {
+//     execute: async (id: string) => {
+//       return await getChat(id);
+//     },
+//   };
+// };

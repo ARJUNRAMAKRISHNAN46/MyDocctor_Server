@@ -1,5 +1,5 @@
-import { IConversationEntity } from "../entities";
+// import { IConversationEntity } from "../entities";
 
-export interface IGetChatUseCase {
-  execute(id: string): Promise<IConversationEntity[] | null>;
-}
+// export interface IGetChatUseCase {
+//   execute(id: string): Promise<IConversationEntity[] | null>;
+// }

@@ -1,13 +1,12 @@
-import { IConversationEntity } from "@/domain/entities"
-import { Chat } from "../models/chatSchema"
+// import Conversation from "../models/conversation.model";
 
-export const addChat = async(obj: any) => {
-  console.log("i am in reopositories")
-  try {
-    const response = await Chat.create(obj)
-    return response as IConversationEntity
-  } catch (error: any) {
-    console.log(error.message)
-    throw new Error(error.message)
-  }
-}
+// export const addChat = async (obj: any) => {
+//   console.log("i am in reopositories");
+//   try {
+//     const response = await Conversation.create(obj);
+//     return response;
+//   } catch (error: any) {
+//     console.log(error.message);
+//     throw new Error(error.message);
+//   }
+// };

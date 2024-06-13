@@ -1,24 +1,39 @@
-import { IMessageEntity } from "@/domain/entities";
-import { Chat } from "../models/chatSchema";
-import { Message } from "../models/messageSchema"
+import Conversation from "../models/conversation.model";
+import Message from "../models/message.model";
 
-export const sendMessage = async (obj:any) => {
+interface Inputs {
+  senderId: string;
+  recieverId: string;
+  message: string;
+}
+
+export const sendMessage = async ({
+  senderId,
+  recieverId,
+  message,
+}: Inputs) => {
   try {
-
-    const {chatId,...chatData} = obj
-    
-    
-    console.log("hello",chatData)
-    const message = await Message.create(chatData);
-
-   const data = await Chat.findByIdAndUpdate(chatId, {
-      latestMessage: message._id, 
-      $push: { chatId: message._id }
+    const newMessage = await Message.create({
+      senderId: senderId,
+      recieverId: recieverId,
+      message: message,
     });
 
+    const data = await Conversation.findOneAndUpdate(
+      {
+        participants: { $all: [senderId, recieverId] },
+      },
+      {
+        latestMessage: newMessage._id,
+        $push: { messages: newMessage._id },
+      },
+      {
+        new: true,
+        upsert: true,
+      }
+    );
 
-    return data as unknown as IMessageEntity;
-
+    return data;
   } catch (error: any) {
     throw new Error(error.message);
   }

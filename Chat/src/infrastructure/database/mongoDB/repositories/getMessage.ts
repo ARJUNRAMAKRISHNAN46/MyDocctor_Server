@@ -1,10 +1,17 @@
-import { IMessageEntity } from "@/domain/entities";
-import { Chat } from "../models/chatSchema";
+import Conversation from "../models/conversation.model";
 
-export const getMessage = async (id: string) => {
+interface Inputs {
+  userToChatId: string;
+  senderId: string;
+}
+
+export const getMessage = async ({ userToChatId, senderId }: Inputs) => {
   try {
-    const response = await Chat.findOne({ _id: id }).populate("chatId");
-    return response as unknown as IMessageEntity[];
+    const conversation = await Conversation.findOne({
+      participants: { $all: [senderId, userToChatId] },
+    }).populate("messages");
+
+    return conversation;
   } catch (error: any) {
     throw new Error(error.message);
   }
