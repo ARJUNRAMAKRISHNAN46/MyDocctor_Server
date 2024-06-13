@@ -1,7 +1,7 @@
-import { IDependencies } from "@/application/interfaces/IDependencies";
+
 import { Request, Response, NextFunction } from "express";
 
-export const getUsersController = (dependencies: IDependencies) => {
+export const getUsersController = (dependencies: any) => {
   const {
     useCases: { getUsersUseCase },
   } = dependencies;

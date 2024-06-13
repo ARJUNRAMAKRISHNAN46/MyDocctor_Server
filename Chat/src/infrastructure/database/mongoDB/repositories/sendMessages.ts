@@ -1,27 +1,26 @@
+import { ObjectId } from "mongodb";
 import Conversation from "../models/conversation.model";
 import Message from "../models/message.model";
 
-interface Inputs {
-  senderId: string;
-  recieverId: string;
+export interface sendMessageInputs {
+  senderId: ObjectId;
+  recieverId: ObjectId;
   message: string;
 }
 
-export const sendMessage = async ({
-  senderId,
-  recieverId,
-  message,
-}: Inputs) => {
+export const sendMessage = async (data: sendMessageInputs) => {
+  console.log("🚀 ~ sendMessage ~ data:", data);
   try {
     const newMessage = await Message.create({
-      senderId: senderId,
-      recieverId: recieverId,
-      message: message,
+      senderId: data?.senderId,
+      recieverId: data?.recieverId,
+      message: data?.message,
     });
+    console.log("123456");
 
-    const data = await Conversation.findOneAndUpdate(
+    const conversationData = await Conversation.findOneAndUpdate(
       {
-        participants: { $all: [senderId, recieverId] },
+        participants: { $all: [data?.senderId, data?.recieverId] },
       },
       {
         latestMessage: newMessage._id,
@@ -32,8 +31,9 @@ export const sendMessage = async ({
         upsert: true,
       }
     );
+    console.log("7890123");
 
-    return data;
+    return conversationData;
   } catch (error: any) {
     throw new Error(error.message);
   }

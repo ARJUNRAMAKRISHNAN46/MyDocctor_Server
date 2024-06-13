@@ -21,6 +21,6 @@
       "skipLibCheck": false,
       "forceConsistentCasingInFileNames": true
     },
-    "include": ["src/**/*"],
+    "include": ["src/**/*", "../interfaces"],
     "exclude": ["./dist", "./node_modules"]
   }

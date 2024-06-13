@@ -5,7 +5,7 @@ import {
   IGetDoctorsUseCase,
   // IAddChatUseCase,
   // IGetChatUseCase,
-} from "../../domain/useCaseInterface";
+} from "../Chat/src/domain/useCaseInterface";
 import { IDependencies } from "./IDependencies";
 
 export interface IUseCases {

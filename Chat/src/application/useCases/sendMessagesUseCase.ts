@@ -1,13 +1,14 @@
-import { IDependencies } from "../interfaces/IDependencies";
+import { sendMessageInputs } from "@/infrastructure/database/mongoDB/repositories";
 
-export const sendMessageUseCase = (dependencies: IDependencies) => {
+export const sendMessageUseCase = (dependencies: any) => {
   const {
     repositories: { sendMessage },
   } = dependencies;
 
   return {
-    execute: async (obj: any) => {
-      return await sendMessage(obj);
+    execute: async (data: sendMessageInputs) => {
+      console.log("🚀 ~ execute: ~ data:", data)
+      return await sendMessage(data);
     },
   };
 };

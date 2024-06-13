@@ -1,6 +1,4 @@
-import { IDependencies } from "../interfaces/IDependencies";
-
-export const getUsersUseCase = (dependencies: IDependencies) => {
+export const getUsersUseCase = (dependencies: any) => {
   const {
     repositories: { getUsers },
   } = dependencies;

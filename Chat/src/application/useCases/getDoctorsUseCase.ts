@@ -1,6 +1,4 @@
-import { IDependencies } from "../interfaces/IDependencies";
-
-export const getDoctorsUseCase = (dependencies: IDependencies) => {
+export const getDoctorsUseCase = (dependencies: any) => {
   const {
     repositories: { getDoctors },
   } = dependencies;

@@ -24,6 +24,7 @@ export const JWTMiddleware = (
 ) => {
   try {
     const { access_token, refresh_token } = req.cookies;
+    console.log(req.cookies, "==================================>");
     
 
     if (!access_token && !refresh_token) {

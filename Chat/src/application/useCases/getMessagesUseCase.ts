@@ -1,13 +1,13 @@
-import { IDependencies } from "../interfaces/IDependencies";
+import { getMessageInputs } from "@/infrastructure/database/mongoDB/repositories";
 
-export const getMessageUseCase = (dependencies: IDependencies) => {
+export const getMessageUseCase = (dependencies: any) => {
   const {
     repositories: { getMessage },
   } = dependencies;
 
   return {
-    execute: async (id: string) => {
-      return await getMessage(id);
+    execute: async (data: getMessageInputs) => {
+      return await getMessage(data);
     },
   };
 };

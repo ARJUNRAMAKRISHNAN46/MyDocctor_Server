@@ -1,8 +1,7 @@
 import { Router } from "express";
-import { IDependencies } from "@/application/interfaces/IDependencies";
 import { controllers } from "../../presentation/controllers";
 
-export const routes = (dependencies: IDependencies) => {
+export const routes = (dependencies: any) => {
   const { getChatById, sendMessage, getDoctors, getUsers } =
     controllers(dependencies);
 
@@ -12,9 +11,9 @@ export const routes = (dependencies: IDependencies) => {
 
   // router.route("/get-chat").post(getChat);
 
-  router.route("/send-message").post(sendMessage);
+  router.route("/send-message/:id").post(sendMessage);
 
-  router.route("/get-chatBy-id").get(getChatById);
+  router.route("/get-chatBy-id/:id").get(getChatById);
 
   router.route("/get-doctors/:id").get(getDoctors);
 

@@ -1,7 +1,8 @@
 import { IUserEntity, IMessageEntity } from "@/domain/entities";
+import { getMessageInputs } from "@/infrastructure/database/mongoDB/repositories";
 
 export interface IRepositories {
-    getMessage: (id: string) => Promise<IMessageEntity[] | null>;
+    getMessage: (data: getMessageInputs) => Promise<IMessageEntity[] | null>;
     sendMessage: ({content, chatId, userId}: any) => Promise<IMessageEntity | null>;
     getUsers: (userId: string) => Promise<IUserEntity[] | null>;
     getDoctors: (userId: string) => Promise<IUserEntity[] | null>;
