@@ -11,6 +11,7 @@ export const listDoctorsForSideBarController = (
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
       const id = req.params.id;
+      console.log("🚀 ~ return ~ id:", id)
 
       const listDoctors = await listDoctorsForSideBarUseCase(
         dependencies

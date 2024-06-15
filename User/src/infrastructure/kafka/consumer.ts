@@ -13,10 +13,8 @@ export const runConsumer = async () => {
         await consumer.run({
             eachMessage: async ({message}) => {
                 const {key, value} = message
-                console.log(key,'🚀🚀🚀🚀🚀🚀🚀');
                 const subscriberMethod = String(key)
                 const subscriberData = JSON.parse(String(value))
-                console.log("🚀 ~ eachMessage: ~ subscriberData ~ :",subscriberMethod, subscriberData);
 
                 try{
                     if(subscriber[subscriberMethod]) {

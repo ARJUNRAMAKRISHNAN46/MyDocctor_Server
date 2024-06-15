@@ -9,16 +9,15 @@ export interface sendMessageInputs {
 }
 
 export const sendMessage = async (data: sendMessageInputs) => {
-  console.log("🚀 ~ sendMessage ~ data:", data);
+  // console.log("🚀 ~ sendMessage ~ data:", data);
   try {
     const newMessage = await Message.create({
       senderId: data?.senderId,
       recieverId: data?.recieverId,
       message: data?.message,
     });
-    console.log("123456");
 
-    const conversationData = await Conversation.findOneAndUpdate(
+     await Conversation.findOneAndUpdate(
       {
         participants: { $all: [data?.senderId, data?.recieverId] },
       },
@@ -31,9 +30,9 @@ export const sendMessage = async (data: sendMessageInputs) => {
         upsert: true,
       }
     );
-    console.log("7890123");
+    // console.log("🚀 ~ sendMessage ~ conversationData:", conversationData)
 
-    return conversationData;
+    return newMessage;
   } catch (error: any) {
     throw new Error(error.message);
   }

@@ -13,7 +13,7 @@ export const routes = (dependencies: any) => {
 
   router.route("/send-message/:id").post(sendMessage);
 
-  router.route("/get-chatBy-id/:id").get(getChatById);
+  router.route("/get-chatBy-id/:id").post(getChatById);
 
   router.route("/get-doctors/:id").get(getDoctors);
 

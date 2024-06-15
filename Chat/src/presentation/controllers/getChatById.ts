@@ -9,8 +9,15 @@ export const getChatByIdController = (dependencies: any) => {
     try {
       const { senderId } = req.body;
       const recieverId = req.params.id;
-      const data = await getMessageUseCase(dependencies).execute({senderId, recieverId});
-      res.json({ status: true, payload: data });
+      const data = await getMessageUseCase(dependencies).execute({
+        senderId,
+        recieverId,
+      });
+      res.status(200).json({
+        success: true,
+        message: "message listed successfully",
+        data: data,
+      });
     } catch (error: any) {
       console.log("🚀 ~ return ~ error:", error);
       next(error);

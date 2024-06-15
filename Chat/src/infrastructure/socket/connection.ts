@@ -1,4 +1,5 @@
-import { Server as SocketIOServer, Socket } from "socket.io";
+// import { Server as SocketIOServer, Socket } from "socket.io";
+import { Socket } from "socket.io";
 import { Server } from "http";
 import { config } from "dotenv";
 config();
@@ -16,6 +17,10 @@ const connectSocketIo = (Server: Server) => {
 
   const userSocketMap: { [key: string]: string } = {};
 
+  const getRecieverSocketId = (recieverId) => {
+    return userSocketMap[recieverId];
+  };
+
   io.on("connection", (socket: Socket) => {
     console.log(`Socket connected`, socket.id);
     const userId: string = socket.handshake.query.userId as string;
@@ -24,16 +29,15 @@ const connectSocketIo = (Server: Server) => {
     }
 
     io.emit("getOnlineUsers", Object.keys(userSocketMap));
-    socket.on("join chat", (room) => {
-      socket.join(room);
-      console.log("User joined", room);
-    });
 
     socket.on("new message", (newMessage) => {
+      const recieverSocketId = getRecieverSocketId(newMessage?.obj?.recieverId);
+      console.log("🚀 ~ socket.on ~ recieverSocketId:", recieverSocketId)
+    if (recieverSocketId) {
+      io.to(recieverSocketId).emit("newMessage", newMessage?.obj);
+    }
       console.log("🚀 ~ socket.on ~ newMessage:", newMessage);
-      const chat = newMessage?.chatId;
-      console.log("🚀 ~ socket.on ~ chat:", chat);
-      io.to(chat).emit("message recieved", newMessage.obj);
+     
     });
 
     socket.on("disconnec", (id: string) => {

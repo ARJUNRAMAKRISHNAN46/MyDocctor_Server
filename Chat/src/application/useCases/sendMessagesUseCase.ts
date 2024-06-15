@@ -7,7 +7,7 @@ export const sendMessageUseCase = (dependencies: any) => {
 
   return {
     execute: async (data: sendMessageInputs) => {
-      console.log("🚀 ~ execute: ~ data:", data)
+      // console.log("🚀 ~ execute: ~ data:", data)
       return await sendMessage(data);
     },
   };

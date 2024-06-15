@@ -15,7 +15,12 @@ export const sendMessageController = (dependencies: any) => {
         recieverId,
         message,
       });
-      res.json({ status: true, payload: data });
+      // console.log("🚀 ~ data ~ data:", data)
+      res.status(200).json({
+        success: true,
+        message: "message sent successfully",
+        data: data,
+      });
     } catch (error: any) {
       console.log("🚀 ~ return ~ error:", error);
       next(error);
