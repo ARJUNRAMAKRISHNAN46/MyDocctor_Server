@@ -8,14 +8,15 @@ export const sendMessageController = (dependencies: any) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { senderId } = req.body;
+      console.log("🚀 ~ return ~ senderId:", senderId)
       const recieverId = req.params.id;
+      console.log("🚀 ~ return ~ recieverId:", recieverId)
       const { message } = req.body;
       const data = await sendMessageUseCase(dependencies).execute({
         senderId,
         recieverId,
         message,
       });
-      // console.log("🚀 ~ data ~ data:", data)
       res.status(200).json({
         success: true,
         message: "message sent successfully",

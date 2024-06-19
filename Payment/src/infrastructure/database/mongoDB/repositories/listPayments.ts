@@ -5,9 +5,9 @@ export const listPayments = async (
   doctorId: string
 ): Promise<PaymentEntity[] | null> => {
   try {
+    const pay = await Payment.find({ doctor_id: doctorId });
+    console.log("🚀 ~ pay:", pay)
     return await Payment.find({ doctor_id: doctorId });
-
-    // return payments;
   } catch (error: any) {
     return null;
   }
