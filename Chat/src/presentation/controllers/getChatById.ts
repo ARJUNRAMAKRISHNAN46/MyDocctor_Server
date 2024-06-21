@@ -9,6 +9,7 @@ export const getChatByIdController = (dependencies: any) => {
     try {
       const { senderId } = req.body;
       const recieverId = req.params.id;
+      
       const data = await getMessageUseCase(dependencies).execute({
         senderId,
         recieverId,

@@ -1,2 +1,3 @@
-export * from './savePayment';
-export * from './listPayments';
+export * from "./savePayment";
+export * from "./listPayments";
+export * from "./listAllPayments";

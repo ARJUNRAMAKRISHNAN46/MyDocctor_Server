@@ -6,3 +6,4 @@ export * from "./IDoctorListAppointmentsUseCase";
 export * from "./IListUsersForSideBarUseCase";
 export * from "./IListDoctorsForSideBarUseCase";
 export * from "./IUserAppointmentUseCase";
+export * from "./IListAllAppointmentUseCase";

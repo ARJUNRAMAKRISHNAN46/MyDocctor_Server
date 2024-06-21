@@ -1,5 +1,5 @@
 import { AppointmentEntity, UserEntity } from "@/domain/entities";
-import { UserAppointmentSlot } from "@/infrastructure/database/mongoDB/repositories";
+import { AdminAppointmentSlot, UserAppointmentSlot } from "@/infrastructure/database/mongoDB/repositories";
 
 export interface IRepositories {
    createAppointment: (data: AppointmentEntity) => Promise<AppointmentEntity | null>;
@@ -10,4 +10,5 @@ export interface IRepositories {
    listUsersForSideBar: (doctorId: string) => Promise<UserEntity[] | null>;
    listDoctorsForSideBar: (userId: string) => Promise<UserEntity[] | null>;
    userAppointment: (userId: string) => Promise<UserAppointmentSlot[] | null>;
+   listAllAppointments: () => Promise<AdminAppointmentSlot[] | null>;
 }
