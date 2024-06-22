@@ -21,7 +21,6 @@ const connectSocketIo = (Server: Server) => {
   };
 
   io.on("connection", (socket: Socket) => {
-    console.log(`Socket connected`, socket.id);
     const userId: string = socket.handshake.query.userId as string;
     if (userId) {
       userSocketMap[userId] = socket.id;
@@ -31,17 +30,14 @@ const connectSocketIo = (Server: Server) => {
 
     socket.on("new message", (newMessage) => {
       const recieverSocketId = getRecieverSocketId(newMessage?.obj?.recieverId);
-      console.log("🚀 ~ socket.on ~ recieverSocketId:", recieverSocketId);
       if (recieverSocketId) {
         io.to(recieverSocketId).emit("newMessage", newMessage?.obj);
       }
-      console.log("🚀 ~ socket.on ~ newMessage:", newMessage);
     });
 
     socket.on("disconnec", (id: string) => {
       delete userSocketMap[id];
       io.emit("getOnlineUsers", Object.keys(userSocketMap));
-      console.log(`Socket disconnect`, id, 87);
     });
 
     socket.on("attendCall", (userId: string) => {
@@ -50,7 +46,7 @@ const connectSocketIo = (Server: Server) => {
     });
 
     socket.on("videoCall", (data) => {
-      console.log("hello chat in Videochat");
+      console.log("🚀 ~ socket.on ~ data:", data)
       const targetSocketId: any = userSocketMap[data.recieverId];
       console.log("targetSocketId: ", targetSocketId);
       io.to(targetSocketId).emit("incomingCall", data);
