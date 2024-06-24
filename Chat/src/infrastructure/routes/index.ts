@@ -2,8 +2,14 @@ import { Router } from "express";
 import { controllers } from "../../presentation/controllers";
 
 export const routes = (dependencies: any) => {
-  const { getChatById, sendMessage, getDoctors, getUsers, getPrescription } =
-    controllers(dependencies);
+  const {
+    getChatById,
+    sendMessage,
+    getDoctors,
+    getUsers,
+    getPrescription,
+    deleteMessage,
+  } = controllers(dependencies);
 
   const router = Router();
 
@@ -16,6 +22,8 @@ export const routes = (dependencies: any) => {
   router.route("/get-users/:id").get(getUsers);
 
   router.route("/get-prescriptions/:id").get(getPrescription);
+
+  router.route("/delete-message/:id").get(deleteMessage);
 
   return router;
 };
