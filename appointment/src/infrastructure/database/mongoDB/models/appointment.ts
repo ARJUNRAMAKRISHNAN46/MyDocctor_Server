@@ -7,7 +7,8 @@ const slotSchema = new Schema({
         required: true
     },
     userId: {
-        String,
+        type: String,
+        ref: 'users',
     }
 });
 

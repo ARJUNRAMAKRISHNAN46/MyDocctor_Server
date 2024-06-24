@@ -12,6 +12,7 @@ export const routes = (dependencies: IDependencies) => {
     listDoctorsForSideBar,
     userAppointment,
     listAllAppointments,
+    findSlotById,
   } = controllers(dependencies);
 
   const router = Router();
@@ -31,6 +32,8 @@ export const routes = (dependencies: IDependencies) => {
   router.route("/list-user-appointments/:id").get(userAppointment);
 
   router.route("/list-all-appointments").get(listAllAppointments);
+
+  router.route("/get-slot/:id").get(findSlotById);
 
   return router;
 };

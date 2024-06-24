@@ -7,3 +7,4 @@ export * from "./listUsersForSideBar";
 export * from "./listDoctorsForSideBar";
 export * from "./userAppointments";
 export * from "./listAllAppointments";
+export * from "./findSlotById";
