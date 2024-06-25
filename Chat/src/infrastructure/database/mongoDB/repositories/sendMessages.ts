@@ -7,6 +7,7 @@ export interface sendMessageInputs {
   recieverId: ObjectId;
   message: string;
   type: string;
+  replyTo: string;
 }
 
 export const sendMessage = async (data: sendMessageInputs) => {
@@ -16,6 +17,7 @@ export const sendMessage = async (data: sendMessageInputs) => {
       recieverId: data?.recieverId,
       message: data?.message,
       type: data?.type,
+      replyTo: data?.replyTo ,
     });
     
     let conversation = await Conversation.findOne({

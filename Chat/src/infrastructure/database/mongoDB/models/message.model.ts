@@ -20,6 +20,9 @@ const messageSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    replyTo: {
+      type: String,
+    }
   },
   {
     timestamps: true,
