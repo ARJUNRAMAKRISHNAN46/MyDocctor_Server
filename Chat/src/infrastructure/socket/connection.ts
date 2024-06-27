@@ -40,13 +40,18 @@ const connectSocketIo = (Server: Server) => {
       io.emit("getOnlineUsers", Object.keys(userSocketMap));
     });
 
+    socket.on("refreshSlots", (bookingData) => {
+      console.log("socket arrieved at refresh socket", bookingData);
+      io.emit("filterSlots", { bookingData });
+    });
+
     socket.on("attendCall", (userId: string) => {
       const recieverSocketId = getRecieverSocketId(userId);
       console.log("🚀 ~ socket.on ~ recieverSocketId:", recieverSocketId);
     });
 
     socket.on("videoCall", (data) => {
-      console.log("🚀 ~ socket.on ~ data:", data)
+      console.log("🚀 ~ socket.on ~ data:", data);
       const targetSocketId: any = userSocketMap[data.recieverId];
       console.log("targetSocketId: ", targetSocketId);
       io.to(targetSocketId).emit("incomingCall", data);

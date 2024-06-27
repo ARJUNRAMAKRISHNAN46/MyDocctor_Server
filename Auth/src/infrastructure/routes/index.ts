@@ -18,7 +18,7 @@ export const routes = (dependencies: IDependencies) => {
 
   const router = Router();
 
-  router.route("/login").post(JWTMiddleware, login);
+  router.route("/login").post(login);
 
   router.route("/signup").post(JWTMiddleware, signup);
 

@@ -4,9 +4,10 @@ import { AppointmentEntity } from "@/domain/entities";
 export const createAppointment = async (
   data: AppointmentEntity
 ): Promise<AppointmentEntity | null> => {
+  console.log("🚀 ~ data:", data)
   try {
     const existSlot = await Appointment.findOne({ doctorId: data.doctorId, date: data.date });
-    console.log("🚀 ~ existSlot:", existSlot)
+    // console.log("🚀 ~ existSlot:", existSlot)
     if (existSlot) {
       return null;
     }
