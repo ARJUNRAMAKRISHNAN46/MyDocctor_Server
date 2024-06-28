@@ -29,7 +29,8 @@
     "typescript": "^5.4.5"
   },
   "devDependencies": {
-    "@types/node": "^20.12.7"
+    "@types/node": "^20.12.7",
+    "@types/webrtc": "^0.0.43"
   },
   "description": ""
 }

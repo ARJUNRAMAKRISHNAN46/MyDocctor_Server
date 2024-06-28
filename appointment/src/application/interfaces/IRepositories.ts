@@ -11,5 +11,6 @@ export interface IRepositories {
    listDoctorsForSideBar: (userId: string) => Promise<UserEntity[] | null>;
    userAppointment: (userId: string) => Promise<UserAppointmentSlot[] | null>;
    listAllAppointments: () => Promise<AdminAppointmentSlot[] | null>;
-   findSlotById: (slotId: string) => Promise<AppointmentEntity | null>
+   findSlotById: (slotId: string) => Promise<AppointmentEntity | null>;
+   removeUserIdFromSlot: (slotId: string) => Promise<AppointmentEntity | null>;
 }

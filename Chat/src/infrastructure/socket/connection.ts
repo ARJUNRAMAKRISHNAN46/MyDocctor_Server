@@ -40,9 +40,24 @@ const connectSocketIo = (Server: Server) => {
       io.emit("getOnlineUsers", Object.keys(userSocketMap));
     });
 
+    socket.on('call', (data) => {
+      // console.log('Call received', data);
+      io.to(data?.receiverId).emit('incomingCall', data);
+    });
+  
+    socket.on('answerCall', (data) => {
+      // console.log('Call answered', data);
+      socket.broadcast.emit('answerCall', data);
+    });
+  
+    socket.on('iceCandidate', (data) => {
+      // console.log('ICE candidate received', data);
+      socket.broadcast.emit('iceCandidate', data);
+    });
+
     socket.on("refreshSlots", (bookingData) => {
       console.log("socket arrieved at refresh socket", bookingData);
-      io.emit("filterSlots", { bookingData });
+      socket.emit("filterSlots", { bookingData });
     });
 
     socket.on("attendCall", (userId: string) => {
@@ -51,9 +66,9 @@ const connectSocketIo = (Server: Server) => {
     });
 
     socket.on("videoCall", (data) => {
-      console.log("🚀 ~ socket.on ~ data:", data);
+      // console.log("🚀 ~ socket.on ~ data:", data);
       const targetSocketId: any = userSocketMap[data.recieverId];
-      console.log("targetSocketId: ", targetSocketId);
+      // console.log("targetSocketId: ", targetSocketId);
       io.to(targetSocketId).emit("incomingCall", data);
     });
   });

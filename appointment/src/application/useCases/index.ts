@@ -8,3 +8,4 @@ export * from "./listDoctorForSideBarUseCase";
 export * from "./userAppointmentUseCase";
 export * from "./listAllAppointmentUseCase";
 export * from "./findSlotByIdUseCase";
+export * from "./removeUserIdFromSlotUseCase";
