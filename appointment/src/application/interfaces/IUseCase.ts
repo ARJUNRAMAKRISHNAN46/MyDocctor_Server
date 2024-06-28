@@ -10,6 +10,7 @@ import {
   IListAllAppointmentUseCase,
   IFindSlotByIdUseCase,
   IRemoveUserIdFromSlotUseCase,
+  IRemoveSlotByDoctorUseCase,
 } from "@/domain/useCaseInterface";
 
 export interface IUseCases {
@@ -24,4 +25,5 @@ export interface IUseCases {
   listAllAppointmentUseCase: (dependencies: any) => IListAllAppointmentUseCase;
   findSlotByIdUseCase: (dependencies: any) => IFindSlotByIdUseCase;
   removeUserIdFromSlotUseCase: (dependencies: any) => IRemoveUserIdFromSlotUseCase;
+  removeSlotByDoctorUseCase: (dependencies: any) => IRemoveSlotByDoctorUseCase;
 }

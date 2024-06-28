@@ -9,6 +9,7 @@ import { userAppointmentController } from "./userAppointment";
 import { listAllAppointmentsController } from "./ListAllAppointments";
 import { findSlotByIdController } from "./findSlotById";
 import { removeUserIdFromSlotsController } from "./removeUserIdFromSlots";
+import { removeSlotByDoctorController } from "./removeSlotByDoctor";
 
 export const controllers = (dependencies: IDependencies) => {
   return {
@@ -22,5 +23,6 @@ export const controllers = (dependencies: IDependencies) => {
     listAllAppointments: listAllAppointmentsController(dependencies),
     findSlotById: findSlotByIdController(dependencies),
     removeUserIdFromSlot: removeUserIdFromSlotsController(dependencies),
+    removeSlotByDoctor: removeSlotByDoctorController(dependencies),
   };
 };

@@ -13,4 +13,5 @@ export interface IRepositories {
    listAllAppointments: () => Promise<AdminAppointmentSlot[] | null>;
    findSlotById: (slotId: string) => Promise<AppointmentEntity | null>;
    removeUserIdFromSlot: (slotId: string) => Promise<AppointmentEntity | null>;
+   removeSlotById: (slotId: string) => Promise<AppointmentEntity | null>;
 }

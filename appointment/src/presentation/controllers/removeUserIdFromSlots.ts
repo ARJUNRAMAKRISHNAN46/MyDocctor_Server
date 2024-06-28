@@ -19,13 +19,13 @@ export const removeUserIdFromSlotsController = (
       if (!slot) {
         res.status(400).json({
           success: false,
-          message: "error while fetching slot",
+          message: "error while cancelling slot",
         });
       }
 
       res.status(201).json({
         success: true,
-        message: "slot fetched successfully",
+        message: "slot cancelling successfully",
         data: slot,
       });
     } catch (error: any) {

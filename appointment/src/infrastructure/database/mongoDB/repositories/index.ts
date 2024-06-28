@@ -9,3 +9,4 @@ export * from "./userAppointments";
 export * from "./listAllAppointments";
 export * from "./findSlotById";
 export * from "./cancelAppointment";
+export * from "./removeSlotByDoctor";
