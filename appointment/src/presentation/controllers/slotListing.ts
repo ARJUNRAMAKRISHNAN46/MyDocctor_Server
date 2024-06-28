@@ -9,7 +9,6 @@ export const slotListingController = (dependencies: IDependencies) => {
             const id = req.params.id;
 
             const slotListing = await slotListingUseCase(dependencies).execute(id);
-            console.log("🚀 ~ return ~ slotListing:", slotListing)
 
             if (!slotListing) {
                 res.status(400).json({

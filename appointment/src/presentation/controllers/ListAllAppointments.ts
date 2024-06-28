@@ -7,7 +7,6 @@ export const listAllAppointmentsController = (dependencies: IDependencies) => {
     return async (req: Request, res: Response, next: NextFunction) => {
         try {
             const appointmentList = await listAllAppointmentUseCase(dependencies).execute();
-            // console.log("🚀 ~ return ~ appointmentList:", appointmentList)
 
             if(!appointmentList) {
                 res.status(400).json({

@@ -19,7 +19,6 @@ export const updateAppoinment = async (
         new: true,
       }
     );
-    console.log("🚀 ~ updateAppoinment ~ updateSlot:", updateSlot);
 
     if (!updateSlot) {
       return null;

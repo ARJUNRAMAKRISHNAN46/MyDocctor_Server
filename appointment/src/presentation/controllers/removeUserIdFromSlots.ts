@@ -1,32 +1,32 @@
 import { IDependencies } from "@/application/interfaces/IDependencies";
 import { Request, Response, NextFunction } from "express";
 
-export const listDoctorsForSideBarController = (
+export const removeUserIdFromSlotsController = (
   dependencies: IDependencies
 ) => {
   const {
-    useCases: { listDoctorsForSideBarUseCase },
+    useCases: { removeUserIdFromSlotUseCase },
   } = dependencies;
 
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const id = req.params.id;
+      const slotId = req.params.id;
 
-      const listDoctors = await listDoctorsForSideBarUseCase(
-        dependencies
-      ).execute(id);
+      const slot = await removeUserIdFromSlotUseCase(dependencies).execute(
+        slotId
+      );
 
-      if (!listDoctors) {
+      if (!slot) {
         res.status(400).json({
           success: false,
-          message: "error while listing doctors",
+          message: "error while fetching slot",
         });
       }
 
-      res.status(200).json({
+      res.status(201).json({
         success: true,
-        message: "list doctor successfully",
-        data: listDoctors,
+        message: "slot fetched successfully",
+        data: slot,
       });
     } catch (error: any) {
       res.status(400).json({

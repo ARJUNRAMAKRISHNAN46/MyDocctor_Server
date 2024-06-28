@@ -22,11 +22,10 @@ export const userAppointment = async (
 
     appointments.forEach((appointment) => {
       appointment.slots.forEach((slot: any) => {
-        console.log(appointment);
         
         if (slot.userId && String(slot.userId) === String(userId)) {
           userSlots.push({
-            appId: appointment._id,
+            appId: slot?._id,
             date: appointment.date,
             time: slot.start,
             doctorId: appointment.doctorId,

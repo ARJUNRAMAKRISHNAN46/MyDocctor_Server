@@ -7,7 +7,6 @@ export const updateAppointmentController = (dependencies: IDependencies) => {
     return async (req: Request, res: Response, next: NextFunction) => {
         try {
             const data = req.body;
-            console.log("🚀 ~ return ~ data:", data);
 
             const updateAppoinment = await updateAppointmentUseCase(dependencies).execute(data);
 

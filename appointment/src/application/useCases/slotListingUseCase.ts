@@ -7,7 +7,6 @@ export const slotListingUseCase = (dependencies: IDependencies) => {
         execute: async (doctor_id: string) => {
             try {
                 const slots = await slotListing(doctor_id);
-                console.log("🚀 ~ execute: ~ slots:", slots)
             
                 return slots;
             } catch (error: any) {

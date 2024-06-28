@@ -10,7 +10,6 @@ export const listDoctorSlotsController = (dependencies: IDependencies) => {
             const selectedDate = String(req.query.date);
 
             const listDoctorSlots = await listDoctorSlotsUseCase(dependencies).execute(id, selectedDate);
-            console.log("🚀 ~ return ~ listDoctorSlots:", listDoctorSlots);
 
             if (!listDoctorSlots) {
                 res.status(400).json({

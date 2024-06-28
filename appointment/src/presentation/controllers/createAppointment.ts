@@ -9,10 +9,8 @@ export const createAppoinmentController = (dependencies: IDependencies) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
       const data = req.body;
-      // console.log("🚀 ~ return ~ data:", data);
 
       const createAppoinment = await createAppointmentUseCase(dependencies).execute(data?.appointmentData);
-      // console.log("🚀 ~ return ~ createAppoinment:", createAppoinment);
 
       if (!createAppoinment) {
         return res

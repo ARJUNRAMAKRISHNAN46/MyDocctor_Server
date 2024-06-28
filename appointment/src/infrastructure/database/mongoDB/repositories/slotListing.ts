@@ -9,7 +9,6 @@ export const slotListing = async (
       "slots.userId",
       "name"
     );
-    console.log("🚀 ~ slotListing ~ slots:", slots);
 
     return slots;
   } catch (error: any) {

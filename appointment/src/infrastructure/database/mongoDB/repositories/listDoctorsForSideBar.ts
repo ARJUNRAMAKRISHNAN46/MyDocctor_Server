@@ -26,13 +26,10 @@ export const listDoctorsForSideBar = async (
         },
       },
     ];
-    console.log("🚀 ~ pipeline:", pipeline)
 
     const doctorIds = await Appointment.aggregate(pipeline);
-    console.log("🚀 ~ doctorIds:", doctorIds)
 
     const doctors = await User.find({ _id: { $in: doctorIds } }).exec();
-    console.log("🚀 ~ doctors:", doctors)
 
     return doctors;
   } catch (error: any) {

@@ -5,18 +5,27 @@ export const removeUserIdFromSlot = async (
   slotId: string
 ): Promise<AppointmentEntity | null> => {
   try {
-    const appointment = await Appointment.findOneAndUpdate(
-      { "slots._id": slotId },
-      { 
-        $unset: { "slots.$.userId": "" },
-        $pull: { slots: { _id: slotId, userId: { $exists: true } } }
-      },
-      { new: true }
-    );
     
-    console.log("🚀 ~ appointment:", appointment);
+    const appointment = await Appointment.findOne(
+      { "slots._id": slotId },
+      { "slots.$": 1, date: 1 }
+    );
 
-    return appointment;
+    if (!appointment) {
+      console.log(`No appointment found with slot ID ${slotId}`);
+      return null;
+    }
+
+    await Appointment.updateOne(
+      { "slots._id": slotId },
+      { $unset: { "slots.$.userId": "" } }
+    );
+
+    const updatedAppointment = await Appointment.findOne(
+      { _id: appointment._id }
+    );
+
+    return updatedAppointment;
   } catch (error: any) {
     throw new Error(error?.message);
   }

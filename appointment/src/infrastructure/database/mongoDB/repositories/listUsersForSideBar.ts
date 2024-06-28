@@ -15,7 +15,6 @@ export const listUsersForSideBar = async (
     const result = await Appointment.aggregate(pipeline);
 
     const userIds = result.length > 0 ? result[0].userIds : [];
-    console.log("🚀 ~ userIds:", userIds);
 
     const users = await User.find({ _id: { $in: userIds } }).exec();
     return users;

@@ -12,7 +12,6 @@ export const listUsersForSideBarController = (dependencies: IDependencies) => {
       const listUsers = await listUsersForSideBarUseCase(dependencies).execute(
         id
       );
-      console.log("🚀 ~ return ~ listUsers:", listUsers);
 
       if (!listUsers) {
         res.status(400).json({
