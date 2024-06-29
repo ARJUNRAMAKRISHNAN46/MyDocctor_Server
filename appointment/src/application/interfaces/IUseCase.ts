@@ -11,6 +11,7 @@ import {
   IFindSlotByIdUseCase,
   IRemoveUserIdFromSlotUseCase,
   IRemoveSlotByDoctorUseCase,
+  IRefundToWalletUseCase,
 } from "@/domain/useCaseInterface";
 
 export interface IUseCases {
@@ -26,4 +27,5 @@ export interface IUseCases {
   findSlotByIdUseCase: (dependencies: any) => IFindSlotByIdUseCase;
   removeUserIdFromSlotUseCase: (dependencies: any) => IRemoveUserIdFromSlotUseCase;
   removeSlotByDoctorUseCase: (dependencies: any) => IRemoveSlotByDoctorUseCase;
+  refundToWalletUseCase: (dependencies: any) => IRefundToWalletUseCase;
 }

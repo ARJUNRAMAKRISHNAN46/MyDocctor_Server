@@ -1,4 +1,5 @@
 import { AppointmentEntity, UserEntity } from "@/domain/entities";
+import { walletEntity } from "@/domain/entities/wallet";
 import { AdminAppointmentSlot, UserAppointmentSlot } from "@/infrastructure/database/mongoDB/repositories";
 
 export interface IRepositories {
@@ -14,4 +15,5 @@ export interface IRepositories {
    findSlotById: (slotId: string) => Promise<AppointmentEntity | null>;
    removeUserIdFromSlot: (slotId: string) => Promise<AppointmentEntity | null>;
    removeSlotById: (slotId: string) => Promise<AppointmentEntity | null>;
+   refundToWallet: (data: walletEntity) => Promise<walletEntity | null>;
 }

@@ -10,3 +10,4 @@ export * from "./IListAllAppointmentUseCase";
 export * from "./IFindSlotByIdUseCase";
 export * from "./IRemoveUserIdFromSlotUseCase";
 export * from "./IRemoveSlotByDoctorUseCase";
+export * from "./IRefundToWalletUseCase";
