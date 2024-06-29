@@ -11,6 +11,7 @@ import { findSlotByIdController } from "./findSlotById";
 import { removeUserIdFromSlotsController } from "./removeUserIdFromSlots";
 import { removeSlotByDoctorController } from "./removeSlotByDoctor";
 import { refundToWalletController } from "./refundToWallet";
+import { walletHistoryController } from "./walletHistory";
 
 export const controllers = (dependencies: IDependencies) => {
   return {
@@ -26,5 +27,6 @@ export const controllers = (dependencies: IDependencies) => {
     removeUserIdFromSlot: removeUserIdFromSlotsController(dependencies),
     removeSlotByDoctor: removeSlotByDoctorController(dependencies),
     refundToWallet: refundToWalletController(dependencies),
+    walletHistory: walletHistoryController(dependencies),
   };
 };

@@ -11,3 +11,4 @@ export * from "./findSlotById";
 export * from "./cancelAppointment";
 export * from "./removeSlotByDoctor";
 export * from "./refundToWallet";
+export * from "./walletHistory";

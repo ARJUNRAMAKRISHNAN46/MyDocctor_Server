@@ -12,6 +12,7 @@ import {
   IRemoveUserIdFromSlotUseCase,
   IRemoveSlotByDoctorUseCase,
   IRefundToWalletUseCase,
+  IWalletHistoryUseCase,
 } from "@/domain/useCaseInterface";
 
 export interface IUseCases {
@@ -28,4 +29,5 @@ export interface IUseCases {
   removeUserIdFromSlotUseCase: (dependencies: any) => IRemoveUserIdFromSlotUseCase;
   removeSlotByDoctorUseCase: (dependencies: any) => IRemoveSlotByDoctorUseCase;
   refundToWalletUseCase: (dependencies: any) => IRefundToWalletUseCase;
+  walletHistoryUseCase: (dependencies: any) => IWalletHistoryUseCase;
 }

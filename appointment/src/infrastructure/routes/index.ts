@@ -16,6 +16,7 @@ export const routes = (dependencies: IDependencies) => {
     removeUserIdFromSlot,
     removeSlotByDoctor,
     refundToWallet,
+    walletHistory,
   } = controllers(dependencies);
 
   const router = Router();
@@ -43,6 +44,8 @@ export const routes = (dependencies: IDependencies) => {
   router.route("/remove-slot/:id").get(removeSlotByDoctor);
 
   router.route("/refund-payment/:id").post(refundToWallet);
+
+  router.route("/wallet-history/:id").get(walletHistory);
 
   return router;
 };

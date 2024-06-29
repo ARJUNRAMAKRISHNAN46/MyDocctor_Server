@@ -16,4 +16,5 @@ export interface IRepositories {
    removeUserIdFromSlot: (slotId: string) => Promise<AppointmentEntity | null>;
    removeSlotById: (slotId: string) => Promise<AppointmentEntity | null>;
    refundToWallet: (data: walletEntity) => Promise<walletEntity | null>;
+   walletHistory: (userId: string) => Promise<walletEntity[] | null>;
 }
