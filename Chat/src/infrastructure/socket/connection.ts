@@ -40,37 +40,29 @@ const connectSocketIo = (Server: Server) => {
       io.emit("getOnlineUsers", Object.keys(userSocketMap));
     });
 
-    socket.on('call', (data) => {
-      // console.log('Call received', data);
-      io.to(data?.receiverId).emit('incomingCall', data);
-    });
-  
-    socket.on('answerCall', (data) => {
-      // console.log('Call answered', data);
-      socket.broadcast.emit('answerCall', data);
-    });
-  
-    socket.on('iceCandidate', (data) => {
-      // console.log('ICE candidate received', data);
-      socket.broadcast.emit('iceCandidate', data);
-    });
-
     socket.on("refreshSlots", (bookingData) => {
       console.log("socket arrieved at refresh socket", bookingData);
-      socket.emit("filterSlots", { bookingData });
-    });
+      socket.emit("filterSlots", { bookingData })
+    })
 
     socket.on("attendCall", (userId: string) => {
       const recieverSocketId = getRecieverSocketId(userId);
       console.log("🚀 ~ socket.on ~ recieverSocketId:", recieverSocketId);
     });
 
+    console.log("Initial userSocketMap:", userSocketMap);
+ 
     socket.on("videoCall", (data) => {
-      // console.log("🚀 ~ socket.on ~ data:", data);
-      const targetSocketId: any = userSocketMap[data.recieverId];
-      // console.log("targetSocketId: ", targetSocketId);
-      io.to(targetSocketId).emit("incomingCall", data);
+      console.log("🚀 ~ socket.on ~ data:", data);
+      const targetSocketId = userSocketMap[data?.id];
+      console.log("targetSocketId: ", targetSocketId);
+      if (targetSocketId) {
+        io.to(targetSocketId).emit("incomingCall", data);
+      } else {
+        console.log("No socket ID found for user ID:", data?.id);
+      }
     });
+    
   });
 };
 
