@@ -5,6 +5,8 @@ export interface AppointmentEntity {
   slots: {
     start: string;
     userId: string;
+    status: string;
+    reservedAt: Date | null;
   }[];
   doctorId: string;
 }

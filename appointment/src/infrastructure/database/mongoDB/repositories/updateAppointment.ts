@@ -1,4 +1,3 @@
-// src/infrastructure/database/mongoDB/repositories/appointmentRepository.ts
 import { Appointment } from "../models";
 import { AppointmentEntity } from "@/domain/entities";
 
@@ -19,6 +18,7 @@ export const updateAppoinment = async (
         new: true,
       }
     );
+    console.log("🚀 ~ updateAppoinment ~ updateSlot:", updateSlot);
 
     if (!updateSlot) {
       return null;

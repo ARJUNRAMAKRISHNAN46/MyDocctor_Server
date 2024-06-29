@@ -10,9 +10,8 @@ const slotSchema = new Schema({
     type: String,
     ref: "users",
   },
-  status: {
-    type: String,
-  },
+  status: { type: String, default: "available" },
+  reservedAt: Date || null,
 });
 
 const appointmentSchema = new Schema({

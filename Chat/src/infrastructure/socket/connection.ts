@@ -40,9 +40,9 @@ const connectSocketIo = (Server: Server) => {
       io.emit("getOnlineUsers", Object.keys(userSocketMap));
     });
 
-    socket.on("refreshSlots", (bookingData) => {
-      console.log("socket arrieved at refresh socket", bookingData);
-      socket.emit("filterSlots", { bookingData })
+    socket.on("refreshSlots", (id) => {
+      console.log("socket arrieved at refresh socket", id);
+      io.emit("filterSlots", { id })
     })
 
     socket.on("attendCall", (userId: string) => {
@@ -50,7 +50,6 @@ const connectSocketIo = (Server: Server) => {
       console.log("🚀 ~ socket.on ~ recieverSocketId:", recieverSocketId);
     });
 
-    console.log("Initial userSocketMap:", userSocketMap);
  
     socket.on("videoCall", (data) => {
       console.log("🚀 ~ socket.on ~ data:", data);

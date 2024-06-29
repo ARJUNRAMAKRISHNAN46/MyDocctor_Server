@@ -1,6 +1,7 @@
 import { Router } from "express";
-import { IDependencies } from "@/application/interfaces/IDependencies";
+import { IDependencies } from "../../application/interfaces/IDependencies";
 import { controllers } from "../../presentation/controllers";
+import { reserveSlot } from "../../presentation/controllers/reserveSlot";
 
 export const routes = (dependencies: IDependencies) => {
   const {
@@ -46,6 +47,8 @@ export const routes = (dependencies: IDependencies) => {
   router.route("/refund-payment/:id").post(refundToWallet);
 
   router.route("/wallet-history/:id").get(walletHistory);
+
+  router.route("/reserve-slot").post(reserveSlot);
 
   return router;
 };
