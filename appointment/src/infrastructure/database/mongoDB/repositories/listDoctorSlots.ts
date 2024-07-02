@@ -9,7 +9,6 @@ export const listDoctorSlots = async (
 
     return slotList;
   } catch (error: any) {
-    console.log("🚀 ~ listDoctorSlots ~ error:", error);
     return null;
   }
 };
