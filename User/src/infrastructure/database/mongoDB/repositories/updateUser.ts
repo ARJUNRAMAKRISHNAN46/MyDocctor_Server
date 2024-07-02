@@ -6,7 +6,7 @@ export const updateUser = async (
 ): Promise<UserEntity | null> => {
   try {
     const { email, ...rest } = data;
-const exist = await User.find({email});
+const exist = await User.findOne({email});
     console.log("🚀 ~ exist:", exist)
     const updated = await User.findOneAndUpdate(
       { email: email },

@@ -84,7 +84,7 @@ export const signupController = (dependencies: IDependencies) => {
               });
             }
 
-            value.password = await hashPassword(value.password);
+            value.password = await hashPassword( value?.password);
 
             const result = await userSignupUseCase(dependencies).execute(value);
 

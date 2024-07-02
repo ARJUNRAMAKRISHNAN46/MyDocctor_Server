@@ -41,6 +41,7 @@
 
 
 import { Appointment } from "../models";
+import { PipelineStage } from "mongoose";
 
 export interface AdminAppointmentSlot {
   date: string;
@@ -52,7 +53,7 @@ export interface AdminAppointmentSlot {
 
 export const listAllAppointments = async (): Promise<AdminAppointmentSlot[] | null> => {
   try {
-    const pipeline = [
+    const pipeline: PipelineStage[] = [
       { $unwind: "$slots" },
       { $match: { "slots.userId": { $exists: true, $ne: null } } },
       {
@@ -64,6 +65,7 @@ export const listAllAppointments = async (): Promise<AdminAppointmentSlot[] | nu
           "slots.userId": 1,
         },
       },
+      { $sort: { date: -1 } },
     ];
 
     const appointments = await Appointment.aggregate(pipeline).exec();

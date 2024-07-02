@@ -9,7 +9,6 @@ export const reserveSlot = async (
   try {
     const { doctorId, date, slot } = req.body;
     
-    console.log("🚀 ~ slot:", slot)
     if (!doctorId || !date || !slot) {
       return res.status(400).json({
         success: false,
@@ -22,7 +21,6 @@ export const reserveSlot = async (
       date: date,
       "slots.start": slot,
     });
-    console.log("🚀 ~ appointment:", appointment)
 
     if (!appointment) {
       return res.status(404).json({
@@ -32,10 +30,8 @@ export const reserveSlot = async (
     }
 
     const slots = appointment.slots.find((slt) => slt.start === slot);
-    console.log("🚀 ~ slots:", slots)
 
     if (slot && slots?.status === "reserved") {
-        console.log('-------------------------------------------------------------------------------------->');
         
       return res.status(404).json({
         success: false,
