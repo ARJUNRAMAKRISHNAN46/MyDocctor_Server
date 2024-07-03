@@ -4,9 +4,9 @@ import { PipelineStage } from "mongoose";
 export interface AdminAppointmentSlot {
   date: string;
   time: string;
-  doctorId: string;
+  doctorName: string;
   appId: string;
-  userId: string;
+  userName: string;
 }
 
 export const listAllAppointments = async (): Promise<
@@ -17,12 +17,51 @@ export const listAllAppointments = async (): Promise<
       { $unwind: "$slots" },
       { $match: { "slots.userId": { $exists: true, $ne: null } } },
       {
+        $addFields: {
+          userIdAsObjectId: {
+            $convert: {
+              input: "$slots.userId",
+              to: "objectId",
+              onError: null,
+              onNull: null,
+            },
+          },
+          doctorIdAsObjectId: {
+            $convert: {
+              input: "$doctorId",
+              to: "objectId",
+              onError: null,
+              onNull: null,
+            },
+          },
+        },
+      },
+      {
+        $lookup: {
+          from: "users",
+          localField: "userIdAsObjectId",
+          foreignField: "_id",
+          as: "user",
+        },
+      },
+      { $unwind: "$user" },
+      {
+        $lookup: {
+          from: "users",
+          localField: "doctorIdAsObjectId",
+          foreignField: "_id",
+          as: "doctor",
+        },
+      },
+      { $unwind: "$doctor" },
+      {
         $project: {
           _id: 1,
           date: 1,
-          doctorId: 1,
           "slots.start": 1,
-          "slots.userId": 1,
+          "slots._id": 1,
+          userName: "$user.name",
+          doctorName: "$doctor.name",
         },
       },
       { $sort: { date: -1 } },
@@ -30,22 +69,25 @@ export const listAllAppointments = async (): Promise<
 
     const appointments = await Appointment.aggregate(pipeline).exec();
 
+    console.log("Appointments Data:", appointments);
+
     if (!appointments || appointments.length === 0) {
       return null;
     }
 
     const userSlots: AdminAppointmentSlot[] = appointments.map(
       (appointment) => ({
-        appId: appointment._id.toString(),
+        appId: appointment.slots._id.toString(),
         date: appointment.date,
         time: appointment.slots.start,
-        doctorId: appointment.doctorId,
-        userId: appointment.slots.userId,
+        doctorName: appointment?.doctorName,
+        userName: appointment?.userName,
       })
     );
 
     return userSlots;
   } catch (error: any) {
+    console.error("Error fetching appointments:", error);
     return null;
   }
 };
