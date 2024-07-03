@@ -15,3 +15,4 @@ import { runConsumer } from './infrastructure/kafka/consumer';
         console.log(error?.message);
     }
 })();
+

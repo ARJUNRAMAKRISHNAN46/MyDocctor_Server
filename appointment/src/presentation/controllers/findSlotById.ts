@@ -9,8 +9,10 @@ export const findSlotByIdController = (dependencies: IDependencies) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
       const slotId = req.params.id;
+      console.log("🚀 ~ return ~ slotId:", slotId)
 
       const slot = await findSlotByIdUseCase(dependencies).execute(slotId);
+      console.log("🚀 ~ return ~ slot:", slot)
 
       if (!slot) {
         res.status(400).json({

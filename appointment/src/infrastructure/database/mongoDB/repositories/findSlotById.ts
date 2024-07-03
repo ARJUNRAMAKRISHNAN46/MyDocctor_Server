@@ -9,6 +9,7 @@ export const findSlotById = async (
       { "slots._id": slotId },
       { "slots.$": 1, date: 1 }
     );
+    console.log("🚀 ~ consultation:", consultation)
 
     return consultation;
   } catch (error: any) {

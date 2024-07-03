@@ -9,6 +9,7 @@ export const findSlotByIdUseCase = (dependencies: IDependencies) => {
     execute: async (slotId: string) => {
       try {
         const slot = await findSlotById(slotId);
+        console.log("🚀 ~ execute: ~ slot:", slot)
 
         return slot;
       } catch (error: any) {

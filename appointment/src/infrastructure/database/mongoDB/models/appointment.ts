@@ -28,6 +28,7 @@ const appointmentSchema = new Schema({
   doctorId: {
     type: String,
     required: true,
+    ref: "users",
   },
 });
 
