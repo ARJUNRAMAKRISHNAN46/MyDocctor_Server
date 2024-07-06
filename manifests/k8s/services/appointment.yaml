@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:  mydocctor-appointment-service
+spec:
+  selector:
+    app: appointment-service
+  ports:
+  - name:  appointment-service
+    protocol: TCP
+    port:  4005
+    targetPort: 4005

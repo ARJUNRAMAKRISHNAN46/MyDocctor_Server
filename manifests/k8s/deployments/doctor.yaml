@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydocctor-doctor-deployment
+  labels:
+    name:  doctor-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: doctor-service
+  template:
+    metadata:
+      labels:
+        app: doctor-service
+    spec:
+      containers:
+      - image: arjun164/mydocctor-doctor:latest
+        name: doctor-service
+        envFrom:
+          - configMapRef:
+              name: doctor-service-config

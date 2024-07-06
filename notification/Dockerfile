@@ -6,6 +6,6 @@ COPY package.json .
 
 RUN npm install
 
-EXPOSE 4005
+EXPOSE 4008
 
 CMD [ "npm" , "run" , "dev" ]

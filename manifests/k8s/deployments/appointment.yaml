@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydocctor-appointment-deployment
+  labels:
+    name:  appointment-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: appointment-service
+  template:
+    metadata:
+      labels:
+        app: appointment-service
+    spec:
+      containers:
+      - image: arjun164/mydocctor-appointment:latest
+        name: appointment-service
+        envFrom:
+          - configMapRef:
+              name: appointment-service-config
