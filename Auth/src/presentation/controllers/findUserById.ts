@@ -14,7 +14,7 @@ export const findUserByIdController = (dependencies: IDependencies) => {
       if (!user) {
         res.status(401).json({
           success: false,
-          message: "Error while finding doctor",
+          message: "Error while finding doctor.",
         });
       }
 

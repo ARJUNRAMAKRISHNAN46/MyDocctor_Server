@@ -22,7 +22,7 @@ export const deleteMessageController = (dependencies: any) => {
 
       res.status(200).json({
         success: true,
-        message: "message delete successfully",
+        message: "message delete successfully.",
         data: data,
       });
     } catch (error: any) {

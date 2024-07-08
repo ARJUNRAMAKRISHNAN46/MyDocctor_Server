@@ -9,7 +9,7 @@ export const addSpecialityController = (dependencies: IDependencies) => {
             const data = req.body;
             console.log("🚀 ~ return ~ data:", data);
             const addSpeciality = await addSpecialityUseCase(dependencies).execute(data);
-            console.log("🚀 ~ return ~ addSpeciality:", addSpeciality);
+            console.log("🚀 ~ return ~ addSpeciality.:", addSpeciality);
 
             if (!addSpeciality) {
                 res.status(400).json({

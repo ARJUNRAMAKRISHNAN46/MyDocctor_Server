@@ -38,7 +38,7 @@ export const createCheckoutSessionController = (
         session.id
       );
       console.log(
-        "🚀 ~ file: createCheckoutSession.ts:41 ~ return ~ paymentIntent:",
+        "🚀 ~ file: createCheckoutSession.ts:41 ~ return ~ paymentIntent.:",
         paymentIntent
       );
     } catch (error: any) {

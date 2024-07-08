@@ -10,7 +10,7 @@ export class MailController {
 
     @Post('/send-mail')
     async sendMail(@Body() data: data) {
-        console.log("🚀 ~ MailController ~ sendMail ~ data:", data)
+        console.log("🚀 ~ MailController ~ sendMail ~ data.:", data)
         await this.mailService.sendMail(
             data?.email, data?.message
         )

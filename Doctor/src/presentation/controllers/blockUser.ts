@@ -18,7 +18,7 @@ export const blockUserController = (dependencies: IDependencies) => {
       if (!blocked) {
         res.status(400).json({
           success: false,
-          message: "doctor blocking failed",
+          message: "doctor blocking failed.",
         });
       }
 

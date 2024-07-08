@@ -20,7 +20,7 @@ export const createAppoinmentController = (dependencies: IDependencies) => {
 
       return res
         .status(200)
-        .json({ success: true, message: "Appointment created successfully", data: createAppoinment });
+        .json({ success: true, message: "Appointment created successfully.", data: createAppoinment });
 
     } catch (error: any) {
       res.status(401).json({
