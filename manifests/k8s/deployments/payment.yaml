@@ -19,4 +19,4 @@ spec:
         name: payment-service
         envFrom:
           - configMapRef:
-              name: payment-service-config
+              name: payments-service-config
