@@ -19,7 +19,7 @@ spec:
         - containerPort: 4003
         envFrom:
         - configMapRef:
-            name: doctor-config 
+            name: doctor-service-config
 ---
 apiVersion: v1
 kind: Service

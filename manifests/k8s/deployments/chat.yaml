@@ -19,7 +19,7 @@ spec:
         - containerPort: 4007
         envFrom:
         - configMapRef:
-            name: chat-config 
+            name: chat-service-config
 ---
 apiVersion: v1
 kind: Service

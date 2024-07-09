@@ -19,7 +19,7 @@ spec:
         - containerPort: 4005
         envFrom:
         - configMapRef:
-            name: appointment-config 
+            name: appointment-service-config 
 ---
 apiVersion: v1
 kind: Service

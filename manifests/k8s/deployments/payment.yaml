@@ -19,7 +19,7 @@ spec:
         - containerPort: 4006
         envFrom:
         - configMapRef:
-            name: payment-config 
+            name: payments-service-config
 ---
 apiVersion: v1
 kind: Service

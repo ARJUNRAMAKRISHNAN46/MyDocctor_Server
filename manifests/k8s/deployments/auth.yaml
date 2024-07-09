@@ -19,7 +19,7 @@ spec:
         - containerPort: 4001
         envFrom:
         - configMapRef:
-            name: auth-config 
+            name: auth-service-config
 ---
 apiVersion: v1
 kind: Service

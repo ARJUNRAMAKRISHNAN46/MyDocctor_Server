@@ -19,7 +19,7 @@ spec:
         - containerPort: 4002
         envFrom:
         - configMapRef:
-            name: user-config 
+            name: user-service-config
 ---
 apiVersion: v1
 kind: Service

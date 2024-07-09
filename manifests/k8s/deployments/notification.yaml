@@ -19,7 +19,7 @@ spec:
         - containerPort: 4008
         envFrom:
         - configMapRef:
-            name: notification-config 
+            name: notification-service-config
 ---
 apiVersion: v1
 kind: Service
