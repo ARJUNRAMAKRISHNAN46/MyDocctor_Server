@@ -7,7 +7,7 @@ export const listSpecialityController = (dependencies: IDependencies) => {
     return async (req: Request, res: Response, next: NextFunction) => {
         try {
             const specialityList = await listSpecialityUseCase(dependencies).execute();
-            console.log("🚀 ~ return ~ specialityList:", specialityList)
+            console.log("🚀 ~ return ~ specialityList: ", specialityList)
             
             if (!specialityList) {
                 res.status(400).json({

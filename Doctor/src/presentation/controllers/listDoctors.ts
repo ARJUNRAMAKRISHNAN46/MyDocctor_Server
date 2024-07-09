@@ -9,7 +9,7 @@ export const listDoctorController = (dependencies: IDependencies) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
       const doctorList = await listDoctorsUseCase(dependencies).execute();
-      console.log("🚀 ~ return ~ doctorList:", doctorList);
+      console.log("🚀 ~ return ~ doctorList: ", doctorList);
 
       if (!doctorList) {
         res.status(400).json({

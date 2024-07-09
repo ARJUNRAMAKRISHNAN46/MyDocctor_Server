@@ -9,7 +9,6 @@ export const isExistController = (dependencies: IDependencies) => {
 
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
-      console.log("🚀 ~ return ~ access_token:");
       console.log("🚀 ~ return ~ access_token:", req.cookies.access_token);
 
       const token: string = req.cookies.access_token;
