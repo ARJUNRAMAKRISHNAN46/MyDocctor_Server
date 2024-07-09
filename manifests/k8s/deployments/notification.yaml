@@ -1,22 +1,34 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mydocctor-notification-deployment
-  labels:
-    name:  notification-service
+  name: mydocctor-chat-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: notification-service
+      app: mydocctor-chat-service
   template:
     metadata:
       labels:
-        app: notification-service
+        app: mydocctor-chat-service
     spec:
       containers:
-      - image: arjun164/mydocctor-notification:latest
-        name: notification-service
+      - name: mydocctor-chat-service
+        image: arjun164/mydocctor-notification:latest
+        ports:
+        - containerPort: 4008
         envFrom:
-          - configMapRef:
-              name: notification-service-config
+        - configMapRef:
+            name: chat-config 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mydocctor-chat-service
+spec:
+  selector:
+    app: mydocctor-chat-service
+  ports:
+  - protocol: TCP
+    port: 4008
+    targetPort: 4008

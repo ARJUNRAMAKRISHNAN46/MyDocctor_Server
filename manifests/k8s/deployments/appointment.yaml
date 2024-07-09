@@ -2,21 +2,33 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mydocctor-appointment-deployment
-  labels:
-    name:  appointment-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: appointment-service
+      app: mydocctor-appointment-service
   template:
     metadata:
       labels:
-        app: appointment-service
+        app: mydocctor-appointment-service
     spec:
       containers:
-      - image: arjun164/mydocctor-appointment:latest
-        name: appointment-service
+      - name: mydocctor-appointment-service
+        image: arjun164/mydocctor-appointment:latest
+        ports:
+        - containerPort: 4005
         envFrom:
-          - configMapRef:
-              name: appointment-service-config
+        - configMapRef:
+            name: appointment-config 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mydocctor-appointment-service
+spec:
+  selector:
+    app: mydocctor-appointment-service
+  ports:
+  - protocol: TCP
+    port: 4005
+    targetPort: 4005

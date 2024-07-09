@@ -2,21 +2,33 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mydocctor-auth-deployment
-  labels:
-    name:  auth-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: auth-service
+      app: mydocctor-auth-service
   template:
     metadata:
       labels:
-        app: auth-service
+        app: mydocctor-auth-service
     spec:
       containers:
-      - image: arjun164/mydocctor-auth:latest
-        name: auth-service
+      - name: mydocctor-auth-service
+        image: arjun164/mydocctor-auth:latest
+        ports:
+        - containerPort: 4001
         envFrom:
-          - configMapRef:
-              name: auth-service-config
+        - configMapRef:
+            name: auth-config 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mydocctor-auth-service
+spec:
+  selector:
+    app: mydocctor-auth-service
+  ports:
+  - protocol: TCP
+    port: 4001
+    targetPort: 4001
