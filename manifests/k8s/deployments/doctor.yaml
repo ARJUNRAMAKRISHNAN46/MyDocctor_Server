@@ -1,33 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mydocctor-chat-deployment
+  name: mydocctor-doctor-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mydocctor-chat-service
+      app: mydocctor-doctor-service
   template:
     metadata:
       labels:
-        app: mydocctor-chat-service
+        app: mydocctor-doctor-service
     spec:
       containers:
-      - name: mydocctor-chat-service
+      - name: mydocctor-doctor-service
         image: arjun164/mydocctor-doctor:latest
         ports:
         - containerPort: 4003
         envFrom:
         - configMapRef:
-            name: chat-config 
+            name: doctor-config 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: mydocctor-chat-service
+  name: mydocctor-doctor-service
 spec:
   selector:
-    app: mydocctor-chat-service
+    app: mydocctor-doctor-service
   ports:
   - protocol: TCP
     port: 4003

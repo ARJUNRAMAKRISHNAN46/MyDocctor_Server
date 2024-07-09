@@ -1,33 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mydocctor-chat-deployment
+  name: mydocctor-payment-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mydocctor-chat-service
+      app: mydocctor-payment-service
   template:
     metadata:
       labels:
-        app: mydocctor-chat-service
+        app: mydocctor-payment-service
     spec:
       containers:
-      - name: mydocctor-chat-service
+      - name: mydocctor-payment-service
         image: arjun164/mydocctor-payment:latest
         ports:
         - containerPort: 4006
         envFrom:
         - configMapRef:
-            name: chat-config 
+            name: payment-config 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: mydocctor-chat-service
+  name: mydocctor-payment-service
 spec:
   selector:
-    app: mydocctor-chat-service
+    app: mydocctor-payment-service
   ports:
   - protocol: TCP
     port: 4006
