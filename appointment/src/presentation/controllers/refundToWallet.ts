@@ -14,7 +14,7 @@ export const refundToWalletController = (dependencies: IDependencies) => {
         reason: req.body?.reason,
         date: req.body?.date,
       };
-      console.log("🚀 ~ return ~ data:", data);
+      console.log("🚀 ~ return ~ data: ", data);
       const wallet = await refundToWalletUseCase(dependencies).execute(data);
 
       if (!wallet) {

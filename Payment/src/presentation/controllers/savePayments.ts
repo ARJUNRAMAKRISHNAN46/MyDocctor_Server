@@ -9,7 +9,7 @@ export const savePaymentController = (dependencies: IDependencies) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
       const data = req.body;
-      console.log("🚀 ~ file: savePayment.ts:11 ~ return ~ data: ", data);
+      console.log("🚀 ~ file: savePayment.ts:11 ~ return ~ data:", data);
       const response = await savePaymentUseCase(dependencies).execute(data);
       if (response) {
         console.log(response);

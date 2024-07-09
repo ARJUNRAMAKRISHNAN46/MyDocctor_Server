@@ -11,7 +11,7 @@ export const findDoctorBySpecialityController = (
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
       const data = req.query.speciality;
-      console.log("🚀 ~ return ~ data:", data);
+      console.log("🚀 ~ return ~ data: ", data);
 
       const doctorList = await findDoctorBySpecialityUseCase(dependencies).execute(String(data));
       console.log("🚀 ~ return ~ doctorList:", doctorList);

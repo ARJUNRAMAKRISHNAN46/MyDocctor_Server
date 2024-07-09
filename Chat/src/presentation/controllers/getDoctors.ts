@@ -13,7 +13,7 @@ export const getDoctorsController = (dependencies: any) => {
 
       res.json({ status: true, payload: data });
     } catch (error: any) {
-      console.log("🚀 ~ return ~ error:", error);
+      console.log("🚀 ~ return ~ error: ", error);
       next(error);
     }
   };

@@ -11,7 +11,7 @@ export const forgotPassword = (dependencies: IDependencies) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { email } = req.body;
-      console.log("🚀 ~ return ~ email:", req.body);
+      console.log("🚀 ~ return ~ email: ", req.body);
       if (!email) {
         res.status(401).json({
           success: false,
