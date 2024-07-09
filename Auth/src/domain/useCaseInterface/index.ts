@@ -7,4 +7,4 @@ export * from './ILoginUserUseCase';
 export * from './IVerifyOtpUseCase';
 export * from './IUserSignupUseCase';
 export * from './IIsExistUseCase';
-export * from './IForgotPassword';
+// export * from './IForgotPassword';
