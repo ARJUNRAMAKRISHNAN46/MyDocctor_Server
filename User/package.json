@@ -25,11 +25,10 @@
     "mongoose": "^8.3.2",
     "nodemailer": "^6.9.13",
     "nodemon": "^3.1.0",
-    "ts-node": "^10.9.2",
-    "tsc": "^2.0.4",
-    "typescript": "^5.5.3"
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
-    "@types/node": "^20.12.7"
+    "@types/node": "^20.12.7",
+    "typescript": "^5.5.3"
   }
 }
