@@ -35,4 +35,3 @@ app.listen(PORT, () => {
 });
 
 export default app;
-// __test
