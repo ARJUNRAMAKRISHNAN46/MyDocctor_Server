@@ -34,4 +34,5 @@ jobs:
         with:
           context:  ./appointment/
           push: true
+          platforms: linux/amd64,linux/arm64
           tags: arjun164/mydocctor-appointment:latest
