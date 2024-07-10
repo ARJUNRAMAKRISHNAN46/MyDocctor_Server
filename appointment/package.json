@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.ts",
-    "build": "tsc ",
+    "dev": "node src/index.ts",
+    "build": "tsc",
     "start": "node dist/index.js",
     "start:dev": "concurrently --kill-others-on-fail \"npm run build\" \"npm run start\""
   },
@@ -25,8 +25,7 @@
     "mongoose": "^8.3.2",
     "nodemailer": "^6.9.13",
     "nodemon": "^3.1.0",
-    "ts-node": "^10.9.2",
-    "tsc": "^2.0.4"
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",
