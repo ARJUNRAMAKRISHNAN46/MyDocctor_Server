@@ -4,7 +4,7 @@ on:
   push:
     branches: ['main']
     paths:
-      - "user-service/**"
+      - "User/**"
   workflow_dispatch:
   
 jobs:

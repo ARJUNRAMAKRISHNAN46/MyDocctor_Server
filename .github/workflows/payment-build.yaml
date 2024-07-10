@@ -4,7 +4,7 @@ on:
   push:
     branches: ['main']
     paths:
-      - "payment-service/**"
+      - "Payment/**"
   workflow_dispatch:
   
 jobs:

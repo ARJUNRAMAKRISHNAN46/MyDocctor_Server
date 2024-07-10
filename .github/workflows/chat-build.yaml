@@ -4,7 +4,7 @@ on:
   push:
     branches: ['main']
     paths:
-      - "chat-service/**"
+      - "Chat/**"
   workflow_dispatch:
   
 jobs:
