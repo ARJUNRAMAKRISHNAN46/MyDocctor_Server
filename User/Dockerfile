@@ -10,7 +10,7 @@ COPY . .
 
 RUN npm install typescript
 
-RUN npx tsc
+RUN npm run build
 
 EXPOSE 4002
 
