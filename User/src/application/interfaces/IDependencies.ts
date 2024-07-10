@@ -1,5 +1,5 @@
 import { IRepositories } from "./IRepositories";
-import { IUseCases } from "./IUseCase";
+import { IUseCases } from "./../interfaces/IUseCase";
 
 export interface IDependencies {
   repositories: IRepositories;
