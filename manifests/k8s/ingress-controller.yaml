@@ -6,7 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
     cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/enable-cors: "true"
-    nginx.ingress.kubernetes.io/cors-allow-origin: "http://mydocctor.online"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "https://mydocctor.online"
 spec:
   ingressClassName: webapprouting.kubernetes.azure.com
   tls:
