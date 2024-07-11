@@ -28,7 +28,7 @@ export const createCheckoutSessionController = (
         payment_method_types: ["card"],
         line_items: lineItems,
         mode: "payment",
-        success_url: "http://localhost:5173/paymentSuccess",
+        success_url: "http://mydocctor.online/paymentSuccess",
         cancel_url: "http://futstore.me",
       });
       res

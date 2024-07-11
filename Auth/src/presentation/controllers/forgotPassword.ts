@@ -36,7 +36,7 @@ export const forgotPassword = (dependencies: IDependencies) => {
 
       sendOTP(
         email,
-        `http://localhost:5173/forgotPassword-post?email=${encrypt}`
+        `http://mydocctor.online/forgotPassword-post?email=${encrypt}`
       )
         .then((res) => {
           console.log("🚀 ~ sendOTP ~ res:", res);
