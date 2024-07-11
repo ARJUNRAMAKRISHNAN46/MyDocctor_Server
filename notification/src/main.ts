@@ -5,7 +5,7 @@ import * as dotEnv from 'dotenv';
 async function bootstrap() {
   dotEnv.config();
   const app = await NestFactory.create(AppModule);
-  app.setGlobalPrefix("/notification"); 
+  app.setGlobalPrefix("/api/notification"); 
   await app.listen(process.env.PORT || 4008);
 }
 bootstrap();
