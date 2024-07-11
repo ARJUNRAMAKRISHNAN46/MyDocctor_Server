@@ -6,13 +6,24 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
     cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/enable-cors: "true"
-    nginx.ingress.kubernetes.io/cors-allow-origin: "https://mydocctor.online"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "http://mydocctor.online"
 spec:
   ingressClassName: webapprouting.kubernetes.azure.com
+  tls:
+  - hosts:
+    - mydocctor.online
+    secretName: mydocctor-tls
   rules:
-  - host: mydocctor.online
+  - host: mydoctor.online
     http:
       paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: mydocctorfrontend-service
+            port:
+              number: 5173
       - path: /api/auth
         pathType: Prefix
         backend:
@@ -48,6 +59,13 @@ spec:
             name: mydocctor-chat-service
             port:
               number: 4007
+      - path: /api/payments
+        pathType: Prefix
+        backend:
+          service:
+            name: mydocctor-payment-service
+            port:
+              number: 4006
       - path: /api/notification
         pathType: Prefix
         backend:
