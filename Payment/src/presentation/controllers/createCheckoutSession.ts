@@ -28,8 +28,8 @@ export const createCheckoutSessionController = (
         payment_method_types: ["card"],
         line_items: lineItems,
         mode: "payment",
-        success_url: "http://mydocctor.online/paymentSuccess",
-        cancel_url: "http://futstore.me",
+        success_url: "https://mydocctor.online/paymentSuccess",
+        cancel_url: "https://futstore.me",
       });
       res
         .status(200)
