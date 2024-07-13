@@ -108,6 +108,8 @@ export const signupController = (dependencies: IDependencies) => {
 
               res.cookie("access_token", AccessToken, {
                 httpOnly: true,
+                sameSite: "none",
+                secure: true,
               });
               console.log("🚀 ~ return ~ result:", result);
 

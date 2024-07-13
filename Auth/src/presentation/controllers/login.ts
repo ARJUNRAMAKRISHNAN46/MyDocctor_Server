@@ -23,11 +23,11 @@ export const loginController = (dependencies: IDependencies) => {
         value.email,
         value.password
       );
-      if(result?.isActive === false) {
+      if (result?.isActive === false) {
         res.status(400).json({
           success: false,
-          message: "You are blocked by admin!!!"
-        })
+          message: "You are blocked by admin!!!",
+        });
         return;
       }
 
@@ -41,8 +41,16 @@ export const loginController = (dependencies: IDependencies) => {
         email: result?.email!,
       });
 
-      res.cookie("access_token", accessToken, { httpOnly: true });
-      res.cookie("refresh_token", refreshToken, { httpOnly: true });
+      res.cookie("access_token", accessToken, {
+        httpOnly: true,
+        sameSite: "none",
+        secure: true,
+      });
+      res.cookie("refresh_token", refreshToken, {
+        httpOnly: true,
+        sameSite: "none",
+        secure: true,
+      });
 
       return res.status(200).json({
         success: true,

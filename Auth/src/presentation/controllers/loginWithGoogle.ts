@@ -11,7 +11,7 @@ export const loginWithGoogle = (dependencies: IDependencies) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { value, error } = await loginValidation.validate(req.body);
-      console.log("🚀 ~ return ~ value:", value)
+      console.log("🚀 ~ return ~ value:", value);
 
       if (error) {
         return res.status(401).json({
@@ -20,23 +20,32 @@ export const loginWithGoogle = (dependencies: IDependencies) => {
         });
       }
 
-      const result = await findUserByEmailUseCase(dependencies).execute(value.email);
+      const result = await findUserByEmailUseCase(dependencies).execute(
+        value.email
+      );
       console.log("🚀 ~ return ~ result:", result);
       if (result) {
-
         const accessToken = generateAccessToken({
-            _id: String(result?._id),
-            email: result?.email!,
-          });
-    
-          const refreshToken = generateRefreshToken({
-            _id: String(result?._id),
-            email: result?.email!,
-          });
-    
-          res.cookie("access_token", accessToken, { httpOnly: true });
-    
-          res.cookie("refresh_token", refreshToken, { httpOnly: true });
+          _id: String(result?._id),
+          email: result?.email!,
+        });
+
+        const refreshToken = generateRefreshToken({
+          _id: String(result?._id),
+          email: result?.email!,
+        });
+
+        res.cookie("access_token", accessToken, {
+          httpOnly: true,
+          sameSite: "none",
+          secure: true,
+        });
+
+        res.cookie("refresh_token", refreshToken, {
+          httpOnly: true,
+          sameSite: "none",
+          secure: true,
+        });
 
         return res.status(200).json({
           success: true,
