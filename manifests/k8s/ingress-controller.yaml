@@ -6,13 +6,9 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
     cert-manager.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/enable-cors: "true"
-    nginx.ingress.kubernetes.io/cors-allow-origin: "https://my-docctor.vercel.app/"
+    nginx.ingress.kubernetes.io/cors-allow-origin: "https://my-docctor.vercel.app"
 spec:
   ingressClassName: webapprouting.kubernetes.azure.com
-  tls:
-  - hosts:  
-    - mydocctor.online
-    secretName: mydocctor-tls
   rules:
   - host: mydocctor.online
     http:
