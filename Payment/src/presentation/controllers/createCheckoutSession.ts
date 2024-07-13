@@ -28,7 +28,7 @@ export const createCheckoutSessionController = (
         payment_method_types: ["card"],
         line_items: lineItems,
         mode: "payment",
-        success_url: "https://mydocctor.online/paymentSuccess",
+        success_url: "https://my-docctor.vercel.app/paymentSuccess",
         cancel_url: "https://futstore.me",
       });
       res
