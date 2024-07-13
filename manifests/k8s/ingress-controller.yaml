@@ -55,6 +55,13 @@ spec:
             name: mydocctor-chat-service
             port:
               number: 4007
+      - path: /socket.io
+        pathType: Prefix
+        backend:
+          service:
+            name: mydocctor-chat-service
+            port:
+              number: 4007        
       - path: /api/payments
         pathType: Prefix
         backend:
