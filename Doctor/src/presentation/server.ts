@@ -25,7 +25,7 @@ app.use("/api/doctor", routes(dependencies));
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.log(err);
   const errorResponse = {
-    errors: [{ message: err?.message || "Something went wrong" }],
+    errors: [{ message: err?.message || "Something went wrong " }],
   };
   return res.status(500).json(errorResponse);
 });
