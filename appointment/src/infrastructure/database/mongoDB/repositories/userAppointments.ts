@@ -38,8 +38,8 @@ export const userAppointment = async (
     }
 
     userSlots.sort((a, b) => {
-      const dateA = parse(a.date, "dd-MM-yyyy", new Date());
-      const dateB = parse(b.date, "dd-MM-yyyy", new Date());
+      const dateA = parse(a.date, "yyyy-mm-dd", new Date());
+      const dateB = parse(b.date, "yyyy-mm-dd", new Date());
       return dateB.getTime() - dateA.getTime();
     });
 
