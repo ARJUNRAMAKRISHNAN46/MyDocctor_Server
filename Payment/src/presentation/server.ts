@@ -6,7 +6,7 @@ import { routes } from "../infrastructure/routes";
 
 dotenv.config();
 const app: Application = express();
-const PORT: number = Number(process.env.PORT) || 4001;
+const PORT: number = Number(process.env.PORT) || 4006;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

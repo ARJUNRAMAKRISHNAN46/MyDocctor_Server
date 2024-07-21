@@ -8,6 +8,7 @@ export const listAllPaymentsController = (dependencies: IDependencies) => {
 
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
+      
       const paymentList = await listAllPaymentsUseCase(dependencies).execute();
 
       if (!paymentList) {
