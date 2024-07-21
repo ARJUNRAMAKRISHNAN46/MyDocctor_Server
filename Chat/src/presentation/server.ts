@@ -17,8 +17,8 @@ app.use(cookieParser());
 const server = http.createServer(app)
 
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
-  // res.setHeader('Access-Control-Allow-Origin', 'https://my-docctor.vercel.app');
+  // res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5173');
+  res.setHeader('Access-Control-Allow-Origin', 'https://my-docctor.vercel.app');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.setHeader('Access-Control-Allow-Credentials', 'true');
@@ -26,8 +26,8 @@ app.use((req, res, next) => {
 });
 
 connectSocketIo(server);
-// app.use("/api/chat", routes(dependencies));
-app.use("/", routes(dependencies));
+app.use("/api/chat", routes(dependencies));
+// app.use("/", routes(dependencies));
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.log(err);

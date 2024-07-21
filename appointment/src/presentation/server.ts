@@ -21,8 +21,8 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.use("/api/appointment", routes(dependencies));
-app.use("/", routes(dependencies));
+app.use("/api/appointment", routes(dependencies));
+// app.use("/", routes(dependencies));
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.log(err);
