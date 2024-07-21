@@ -6,6 +6,7 @@ export interface UserAppointmentSlot {
   time: string;
   doctorName: string;
   appId: string;
+  paymentId: string
 }
 
 export const userAppointment = async (
@@ -32,6 +33,7 @@ export const userAppointment = async (
             date: appointment.date,
             time: slot.start,
             doctorName,
+            paymentId: slot?.paymentId,
           });
         }
       });
