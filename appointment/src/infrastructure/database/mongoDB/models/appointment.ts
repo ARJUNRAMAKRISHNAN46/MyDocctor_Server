@@ -10,6 +10,10 @@ const slotSchema = new Schema({
     type: String,
     ref: "users",
   },
+  paymentId: {
+    type: String,
+    ref: "payments",
+  },
   status: { type: String, default: "available" },
   reservedAt: Date || null,
 });

@@ -18,7 +18,6 @@ export class MailService {
   }
 
   async sendMail(email: string, message: string) {
-    console.log('🚀 ~ MailService ~ sendMail ~ email:', email, message);
     const mailOptions = {
       from: 'mydocctor@gmail.com',
       to: email,

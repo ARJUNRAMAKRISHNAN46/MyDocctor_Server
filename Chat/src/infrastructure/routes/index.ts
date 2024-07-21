@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { controllers } from "../../presentation/controllers";
+import { getLastMessageController } from "../../presentation/controllers/getLastMessage";
 
 export const routes = (dependencies: any) => {
   const {
@@ -24,6 +25,8 @@ export const routes = (dependencies: any) => {
   router.route("/get-prescriptions/:id").get(getPrescription);
 
   router.route("/delete-message/:id").get(deleteMessage);
+
+  router.route("/get-last-message/:id").post(getLastMessageController);
 
   return router;
 };

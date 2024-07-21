@@ -7,8 +7,9 @@ export const createAppointment = async (
   console.log("🚀 ~ data:", data)
   try {
     const existSlot = await Appointment.findOne({ doctorId: data.doctorId, date: data.date });
+    console.log("🚀 ~ existSlot:", existSlot)
     if (existSlot) {
-      return null;
+      return existSlot;
     }
     const createAppointment = await Appointment.create(data);
 

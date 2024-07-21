@@ -9,16 +9,19 @@ export const removeSlotByDoctorController = (dependencies: IDependencies) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
       const slotId = req.params.id;
+      console.log("🚀 ~ return ~ slotId:", slotId)
 
       const result = await removeSlotByDoctorUseCase(dependencies).execute(
         slotId
       );
-
+      
+      console.log("🚀 ~ return ~ result:", result)
       if (!result) {
         res.status(400).json({
           success: false,
           message: "error while removing slot",
         });
+        return;
       }
 
       res.status(201).json({
