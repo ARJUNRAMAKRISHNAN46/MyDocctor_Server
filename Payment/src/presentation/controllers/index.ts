@@ -3,6 +3,7 @@ import { createCheckoutSessionController } from "./createCheckoutSession";
 import { savePaymentController } from "./savePayments";
 import { listPaymentsController } from "./listPayments";
 import { listAllPaymentsController } from "./listAllPayments";
+import { findPaymentByIdController } from "./findPaymentById";
 
 export const controllers = (dependencies: IDependencies) => {
   return {
@@ -10,5 +11,6 @@ export const controllers = (dependencies: IDependencies) => {
     savePayment: savePaymentController(dependencies),
     listPayments: listPaymentsController(dependencies),
     listAllPayments: listAllPaymentsController(dependencies),
+    findPaymentById: findPaymentByIdController(dependencies),
   };
 };

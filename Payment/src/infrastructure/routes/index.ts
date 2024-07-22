@@ -4,8 +4,13 @@ import { controllers } from "../../presentation/controllers";
 // import { JWTMiddleware } from "../../utils/middleware/JWTMiddleware";
 
 export const routes = (dependencies: IDependencies) => {
-  const { createCheckoutSession, savePayment, listPayments, listAllPayments } =
-    controllers(dependencies);
+  const {
+    createCheckoutSession,
+    savePayment,
+    listPayments,
+    listAllPayments,
+    findPaymentById,
+  } = controllers(dependencies);
 
   const router = Router();
 
@@ -16,6 +21,8 @@ export const routes = (dependencies: IDependencies) => {
   router.route("/list-payments/:id").get(listPayments);
 
   router.route("/list-all-payments").get(listAllPayments);
+
+  router.route("/find-payment/:id").get(findPaymentById);
 
   return router;
 };
