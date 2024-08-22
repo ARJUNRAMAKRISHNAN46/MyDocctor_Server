@@ -23,6 +23,9 @@ app.use("/user/api", proxy("https://mydocctor-server-4.onrender.com"));
 app.use("/appointment/api", proxy("https://mydocctor-server-5.onrender.com"));
 app.use("/notification/api", proxy(""));
 
+
+app.listen(PORT, () => console.log(`Gateway running at ${PORT}`));
+
 // app.use("/auth/api", proxy("http://localhost:4001"));
 // app.use("/user/api", proxy("http://localhost:4002"));
 // app.use("/doctor/api", proxy("http://localhost:4003"));
@@ -30,5 +33,3 @@ app.use("/notification/api", proxy(""));
 // app.use("/payments/api", proxy("http://localhost:4006"));
 // app.use("/chat/api", proxy("http://localhost:4007"));
 // app.use("/notification/api", proxy("http://localhost:4008"));
-
-app.listen(PORT, () => console.log(`Gateway running at ${PORT}`));
