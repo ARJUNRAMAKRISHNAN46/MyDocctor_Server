@@ -22,7 +22,7 @@ app.use((req, res, next) => {
 });
 
 // app.use("/", routes(dependencies));
-app.use("/api/doctor", routes(dependencies));
+app.use("/", routes(dependencies));
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.log(err);

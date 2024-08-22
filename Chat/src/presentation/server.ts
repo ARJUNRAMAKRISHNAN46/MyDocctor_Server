@@ -26,7 +26,7 @@ app.use((req, res, next) => {
 });
 
 connectSocketIo(server);
-app.use("/api/chat", routes(dependencies));
+app.use("/", routes(dependencies));
 // app.use("/", routes(dependencies));
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
