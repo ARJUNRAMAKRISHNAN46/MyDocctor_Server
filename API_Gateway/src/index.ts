@@ -21,7 +21,7 @@ app.use("/doctor/api", proxy("https://mydocctor-server-2.onrender.com"));
 app.use("/payments/api", proxy("https://mydocctor-server-3.onrender.com"));
 app.use("/user/api", proxy("https://mydocctor-server-4.onrender.com"));
 app.use("/appointment/api", proxy("https://mydocctor-server-5.onrender.com"));
-app.use("/notification/api", proxy(""));
+app.use("/notification/api", proxy("https://mydocctor-server-5.onrender.com"));
 
 
 app.listen(PORT, () => console.log(`Gateway running at ${PORT}`));
