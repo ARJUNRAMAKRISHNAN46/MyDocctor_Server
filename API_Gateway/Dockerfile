@@ -6,6 +6,12 @@ COPY package.json .
 
 RUN npm install
 
+COPY . .
+
+RUN npm install typescript
+
+RUN npx tsc
+
 EXPOSE 8000
 
-CMD [ "npm" , "run" , "dev" ]
+CMD [ "npm", "start" ]
