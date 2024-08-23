@@ -31,7 +31,11 @@
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.7",
+    "@types/cors": "^2.8.17",
     "@types/node": "^20.12.7",
+    "cors": "^2.8.5",
+    "i": "^0.3.7",
+    "npm": "^10.8.2",
     "typescript": "^5.5.3"
   }
 }
