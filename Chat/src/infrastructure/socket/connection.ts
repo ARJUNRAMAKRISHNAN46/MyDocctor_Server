@@ -29,7 +29,7 @@ const connectSocketIo = (Server: Server) => {
     io.emit("getOnlineUsers", Object.keys(userSocketMap));
 
     socket.on("new message", (newMessage) => {
-      console.log("🚀 ~ socket.on ~ newMessage:", newMessage)
+      console.log("🚀 ~ socket.on ~ newMessage: ", newMessage)
       const recieverSocketId = getRecieverSocketId(newMessage?.obj?.recieverId);
       if (recieverSocketId) {
         io.to(recieverSocketId).emit("newMessage", newMessage?.obj);
