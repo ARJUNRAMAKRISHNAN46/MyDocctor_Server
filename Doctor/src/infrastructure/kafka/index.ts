@@ -6,9 +6,9 @@ const kafka = new Kafka({
   ssl: true,
   sasl: {
     mechanism: "plain",
-    username: "7IZITQ7JNZQTWVPI",
+    username: "VSU5WQXBERVQNK2H",
     password:
-      "9PcDObH4j/TZcDMBgPpBNldIOr/pfPK4bH2UPWchx+nEsrtt3Owl+Kk97FkwX4SJ",
+      "x2oGLw7jrZwHCXGR7ELLQ5FMbHP9IvSw0e+JXF+1NTEfmjuUqePXUGKz7hTZnmaI",
   },
 });
 
