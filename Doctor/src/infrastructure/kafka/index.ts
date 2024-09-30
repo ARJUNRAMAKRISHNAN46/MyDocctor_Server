@@ -6,8 +6,9 @@ const kafka = new Kafka({
   ssl: true,
   sasl: {
     mechanism: "plain",
-    username: String(process.env.KAFKA_USERNAME),
-    password: String(process.env.KAFKA_PASSWORD),
+    username: "VSU5WQXBERVQNK2H",
+    password:
+      "x2oGLw7jrZwHCXGR7ELLQ5FMbHP9IvSw0e+JXF+1NTEfmjuUqePXUGKz7hTZnmaI",
   },
 });
 
