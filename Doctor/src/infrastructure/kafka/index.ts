@@ -2,7 +2,7 @@ import { Kafka, Producer, Consumer } from "kafkajs";
 
 const kafka = new Kafka({
   clientId: "doctor-service-latest",
-  brokers: ["pkc-12576z.us-west2.gcp.confluent.cloud:29092"],
+  brokers: ["pkc-12576z.us-west2.gcp.confluent.cloud:9092"],
   ssl: true,
   sasl: {
     mechanism: "plain",
