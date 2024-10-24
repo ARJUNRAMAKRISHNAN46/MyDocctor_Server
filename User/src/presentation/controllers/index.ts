@@ -16,5 +16,6 @@ export const controllers = (dependencies: IDependencies) => {
     updateProfile: updateProfileController(dependencies),
     addService: addServiceController(dependencies),
     listService: listServiceController(dependencies),
+    
   };
 };

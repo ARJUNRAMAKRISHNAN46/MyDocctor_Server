@@ -1,6 +1,8 @@
 import { Router } from "express";
 import { IDependencies } from "@/application/interfaces/IDependencies";
 import { controllers } from "../../presentation/controllers";
+import { pingFunction } from "../../presentation/controllers/pink";
+import { timeFunction } from "../../presentation/controllers/time";
 
 export const routes = (dependencies: IDependencies) => {
   const {
@@ -28,6 +30,9 @@ export const routes = (dependencies: IDependencies) => {
   router.route("/list-services").get(listService);
 
   router.route("/add-service").post(addService);
+
+  router.route("/time").get(pingFunction);
+  router.route("/ping").get(timeFunction);
 
   return router;
 };
